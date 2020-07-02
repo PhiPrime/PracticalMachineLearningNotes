@@ -1,7 +1,7 @@
 ---
 title: "Practical Machine Learning Notes"
 author: "Coursera Course by John Hopkins University"
-date: "INSTRUCTORS: Dr. Brian Caffo, Dr. Roger D. Peng, Dr. Jeff Leek"
+date: "INSTRUCTORS: Dr. Jeff Leek, Dr. Brian Caffo, Dr. Roger D. Peng"
 fontsize: 11pt
 output: 
         pdf_document:
@@ -14,6 +14,19 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Intro  
+* This course covers the basic ideas behind machine learning/prediction  
+        + Study Design - training vs. test sets  
+        + Conceptual issues - out of sample error, overfitting, ROC curves  
+        + Practical Implementation - the caret package  
+* What this course depends on:  
+        + The Data Scientist's Toolbox  
+        + R Programming  
+* What would be useful  
+        + Exploratory Analysis  
+        + Reproducible Research  
+        + Regression Models  
+        + (Notes on these 5 courses are all in my GitHub repoes)  
+        
 ## GitHub Link for Lectures  
 **[Practical Machine Learning lectures on GitHub](https://github.com/bcaffo/courses/tree/master/08_PracticalMachineLearning)**  
 
@@ -27,13 +40,159 @@ knitr::opts_chunk$set(echo = TRUE)
   
 *Jeff Leek and the Data Science Track Team*"  
 
-**Reminder to Commit (01), Delete this line** ***AFTER*** **Committing**  
 
 # Prediction, Errors, and Cross Validation  
 ## Prediction  
 ### Prediction Motivation  
+* Who predicts things?  
+        + Local governments -> pension payments  
+        + Google -> whether you will click on an ad  
+        + Amazon -> what movies you will watch  
+        + Insurance companies -> what your risk of death is  
+        + Johns Hopkins -> who will succeed in their programs  
+* Why predict things  
+        + Glory (Nerd cred for accomplishing certain feats)  
+                - A lot of competitions are hosted on **[Kaggle](http://www.kaggle.com/)**  
+        + Riches (Completing some competition that offers a reward)  
+        + Save lives  
+                - **[On cotype DX](http://www.oncotypedx.com/en-US/Home)** reveals the underlying biology that changes treatment decisions 37% of the time.  
+
+#### More Resources
+* **[A course on more advanced material about ML](https://www.coursera.org/course/ml)**  
+* **[List of machine learning resources on Quora](http://www.quora.com/Machine-Learning/What-are-some-good-resources-for-learning-about-machine-learning-Why)**  
+* **[List of machine learning resources from Science](http://www.sciencemag.org/site/feature/data/compsci/machine_learning.xhtml)**  
+* **[Advanced notes from MIT open courseware](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-867-machine-learning-fall-2006/lecture-notes/)**  
+* **[Advanced notes from CMU](http://www.stat.cmu.edu/~cshalizi/350/)**  
+* **[Kaggle - machine learning competitions](http://www.kaggle.com/)**  
+
 ### What is Prediction?  
+#### Main Idea  
+* One focus of ML is on what algorithms are the best for extracting information and using it to predict.  
+* Although the method used for producing a training set is also quite important  
+![Main Idea of ML](./Images/ML_Main_Idea.png)
+  
+* One starts off with a dataset  
+1) One uses Probability/Sampling to select a Training Set  
+2) One measures characteristics of this training set to create a Predicition Function  
+3) One then uses the Prediction Function to take an uncolored dot and predict if it's red or blue  
+4) One would then go on to test how well their Prediction Function works  
+
+#### What Can Go Wrong  
+* An example is **[Google Flu trends](http://www.sciencemag.org/content/343/6176/1203)** (**[A free overview of the issue witht he accuracy](https://en.wikipedia.org/wiki/Google_Flu_Trends#Accuracy)**)  
+        - Google tried to predict rate of flu using what people would search  
+        - Originally the algorithm was able to represent how many cases would appear in a region within a certain time  
+        - Although they didn't account for the fact that the terms would change over time  
+        - The way the terms were being used wasn't well understood so when terms changed they weren't able to accurately account for the change.  
+        - It also overestimated as it the search terms it looked at were often cofactors with other illnesses  
+        
+#### Componets of a Predictor  
+1) Question  
+* Any problem in data science starts with a question, "What are you trying to predict and what are you trying to predict it with?"  
+
+2) Input Data  
+* Collect best input data you can to use to predict  
+
+3) Features  
+* From that data one builds features that they will use to predict  
+
+4) Algorithm  
+* One uses ML algorithms to develop a function  
+
+5) Parameters  
+* Estimate parameters of the algorithm  
+
+6) Evaluation  
+* Apply algorithm to a data set to evaluate how well the algorithm works  
+
+#### Example  
+* Start with a general question, "Can I automatically detect emails that are SPAM and those that are not?"  
+* Make the question more concrete, "Can I use quantitative characteristics of the emails to classify them as SPAM/HAM?"  
+* Find input data  
+        + In this instance there is data avaliable in R via the `kernlab` package  
+        + Note that this data set won't necessarily be the perfect data as it doesn't contain all the emails ever sent, or the emails sent to you personally  
+* Quantify features, such as the frequency of certain words or typeface. The `spam` dataset from `kernlab` contains these types of frequency.  
+```{r}
+library(kernlab)
+data(spam)
+str(spam)
+```
+```{r}
+plot(density(spam$your[spam$type=="nonspam"]),
+     col = "#5BC2E7", main = "", xlab = "Frequency of 'your'")
+lines(density(spam$your[spam$type=="spam"]), col = "#FF0000")
+```
+  
+ * It can be seen here "your" appears more often in SPAM emails than it does in HAM  
+        + One could use this idea to create a cut-off point for predicting if a message is SPAM  
+* The proposed algorithm  
+        + Find a value of $C$  
+        + If the frequency of $'your'>C$ predict the message is SPAM  
+```{r}
+plot(density(spam$your[spam$type=="nonspam"]),
+     col = "#5BC2E7", main = "", xlab = "Frequency of 'your'")
+lines(density(spam$your[spam$type=="spam"]), col = "#FF0000")
+abline(v = 0.5, col = "#000000")
+```
+  
+* Choosing 0.5 would contain most spam messages and avoid the second spike of HAM emails  
+* We then evaluate this predictor  
+```{r}
+prediction <- ifelse(spam$your > 0.5, "spam", "nonspam")
+res <- table(prediction, spam$type)/length(spam$type)
+res
+```
+  
+* In this case our accuracy is `r round(res[1,1], 4)` + `r round(res[2,2], 4)` = `r round(res[1,1]+res[2,2], 4)`, or an accuracy of approximately `r round((res[1,1]+res[2,2])*100, 2)`%, although this is an opptamistic measure of the overall error, which will be discussed further later.    
+
+
 ### Relative Importance of Steps  
+question > data > features/variables > algorithms  
+"*The commbinaiton of some data and an aching desire for an answer does not ensure that a reasonable answer can be extracted from a given body of data.*" -John Tukey  
+
+* In other words, an important component of prediction is knowing when to give up, that is that the data is not sufficient  
+
+#### Input Data: Garbage in = Garbage out  
+1. May be easy (movie ratings -> new movie ratings)  
+2. May be harder (gene expression data -> disease)  
+3. Depends on what is a "good prediction".  
+4. Often more **[data > better models](http://www.youtube.com/watch?v=yvDCzhbjYWs)**  
+5. The most important step is collecting the right data  
+
+#### Features: They matter!  
+* Properties of good features  
+        + Lead to data compression  
+        + Retain relevant information  
+        + Are created based on expert application knowledge  
+* Common mistakes  
+        + Trying to automate feature selection (Although they may be automated with care)  
+        + Not paying attention to data-specific quirks  
+        + Throwing away information unnecessarily  
+
+#### Algorithm: They Matter Less Than You'd Think  
+![Linear vs Model](./Images/Linear_vs_Model.png)  
+  
+* The above table shows that the Linear Discrimenate Analysis (Lindisc) error often was not that far off from the best method  
+* Using the best approach doesn't always largely improve the error  
+
+#### Issues to Consider  
+* The "Best" machine learning method would be:  
+        + Interpretable  
+                - If predictor is to be presented to an uninformed audience you'd want to to be understandable by them  
+        + Simple  
+                - Helps with interpretablity  
+        + Accurate  
+                - Getting a model to be interpretable can sometimes hurt the accuracy  
+        + Fast  
+                - Quick build the model, train, and test  
+        + Scalable  
+                - Easy to apply to a large dataset (either fast or parallelizable)  
+
+#### Prediction is About Accuracy Tradeoffs  
+* Tradeoffs are made for interpretability, speed, simplicity, or scalability.  
+* Interpretability matters, decision tree-like results are more interpretable
+        + "**if** total cholesterol $\geq 160$ **and** they smoke **then** *10 year CHD risk* $\geq$ *5%* **else if** they smoke **and** systolic blood pressure $\geq$ 140 **then** *10 year CHD risk* $\geq$ 5% **else** *10 year CHD risk* < 5%"  
+* Scalability matter  
+        + in "The Netflix $1 Million Challenge" Netflix never implemented the solution itself because the algorithm wasn't scalable and took way too long on the big data sets that Neflix was working with, so they went with something that was less accurate but more scalable.  
 
 **Reminder to Commit (02), Delete this line** ***AFTER*** **Committing**  
 
