@@ -1,0 +1,122 @@
+---
+title: "Practical Machine Learning Notes"
+author: "Coursera Course by John Hopkins University"
+date: "INSTRUCTORS: Dr. Brian Caffo, Dr. Roger D. Peng, Dr. Jeff Leek"
+fontsize: 11pt
+output: 
+        pdf_document:
+                toc: true
+                toc_depth: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Intro  
+## GitHub Link for Lectures  
+**[Practical Machine Learning lectures on GitHub](https://github.com/bcaffo/courses/tree/master/08_PracticalMachineLearning)**  
+
+## Course Book  
+**[The book for this course is available on this site](https://web.stanford.edu/~hastie/ElemStatLearn//)**  
+
+## Instructor's Note  
+"*Welcome to Practical Machine Learning! This course will focus on developing the tools and techniques for understanding, building, and testing prediction functions.*  
+  
+*These tools are at the center of the Data Science revolution. Many researchers, companies, and governmental organizations would like to use the cheap and abundant data they are collecting to predict what customers will like, what services to offer, or how to improve people's lives.*  
+  
+*Jeff Leek and the Data Science Track Team*"  
+
+**Reminder to Commit (01), Delete this line** ***AFTER*** **Committing**  
+
+# Prediction, Errors, and Cross Validation  
+## Prediction  
+### Prediction Motivation  
+### What is Prediction?  
+### Relative Importance of Steps  
+
+**Reminder to Commit (02), Delete this line** ***AFTER*** **Committing**  
+
+## Errors  
+### In and Out of Sample Errors  
+### Prediction Study Design  
+### Types of Errors  
+### Receiver Operating Characteristics  
+
+**Reminder to Commit (03), Delete this line** ***AFTER*** **Committing**  
+
+## Cross Validation  
+### Cross Validation  
+### What Data Should You Use?  
+
+**Reminder to Commit (04), Delete this line** ***AFTER*** **Committing**  
+
+## Quiz 1  
+
+**Reminder to Commit (Q1), Delete this line** ***AFTER*** **Committing**  
+
+# The Caret Package  
+## Caret Package  
+### Caret Package  
+### Training Options  
+### Plotting Predictors  
+
+**Reminder to Commit (05), Delete this line** ***AFTER*** **Committing**  
+
+## Preprocessing  
+### Basic Preprocessing  
+### Covariate Creation  
+### Preprocessing with Principal Components Analysis (PCA)  
+
+**Reminder to Commit (06), Delete this line** ***AFTER*** **Committing**  
+
+## Predicting  
+### Predicting with Regression  
+### Predicting with Regression Multiple Covariates  
+
+**Reminder to Commit (07), Delete this line** ***AFTER*** **Committing**  
+
+## Quiz 2  
+
+**Reminder to Commit (Q2), Delete this line** ***AFTER*** **Committing**  
+
+# Predicting with Trees, Random Forests, & Model Based Predictions  
+## Trees  
+### Predicting with Trees  
+### Bagging  
+
+**Reminder to Commit (08), Delete this line** ***AFTER*** **Committing**  
+
+## Random Forests  
+### Random Forests  
+### Boosting  
+
+**Reminder to Commit (09), Delete this line** ***AFTER*** **Committing**  
+
+## Model Baded Predictions  
+### Model Based Predictions  
+
+**Reminder to Commit (10), Delete this line** ***AFTER*** **Committing**  
+
+## Quiz 3  
+
+**Reminder to Commit (Q3), Delete this line** ***AFTER*** **Committing**  
+
+# Regularized Regression and Combining Predictors  
+## Regularized Regression  
+## Combining Predictors  
+
+**Reminder to Commit (11), Delete this line** ***AFTER*** **Committing**  
+
+## Forecasting  
+## Unsupervised Prediction  
+
+**Reminder to Commit (12), Delete this line** ***AFTER*** **Committing**  
+
+## Quiz 4  
+
+**Reminder to Commit (Q4), Delete this line** ***AFTER*** **Committing**  
+
+# Course Project  
+
+**Reminder to Commit (P1), Delete this line** ***BEFORE*** **Committing**  
