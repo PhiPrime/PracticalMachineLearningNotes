@@ -448,11 +448,66 @@ We evaluate error by *mean squared error* and it's root
   + As such the closer to the top left of the plot a curve is the better it is.  
 * In general (depending on field & probability) an AUC above 0.8 is considered "good"  
 
-**Reminder to Commit (03), Delete this line** ***AFTER*** **Committing**  
-
 ## Cross Validation  
 ### Cross Validation  
+* A widely used tool for detecting relevant features and building models.  
+
+#### Key Ideas  
+1. Accuracy on the training set (resubstitution accuracy) is optimistic  
+2. A better estimate comes from an independent set (test set accuracy)  
+3. But we can't use the test set when building the model or it becomems part of the training set  
+4. So we estimate the test set accuracy with the training set  
+
+Cross-Validation Approach:  
+1. Use the training set  
+2. Split it into training/test sets (seperate from actual test set)  
+3. Build a model on the training set  
+4. Evaluate on the test set  
+5. Repeat with new training/test sets and average the estimated errors  
+  
+What Cross-Validation is used for:  
+1. Picking variables to include in a model  
+2. Picking th etype of prediction function to use  
+3. Picking the parameters in the prediction function  
+4. Comparing different predictors  
+  
+#### Ways to Pick Subsets  
+![Random Subsampling](./Images/randomSubsampling.png)
+  
+![K-folds](./Images/kfold.png)  
+  
+* Breaks data into $K$ equal sized data sets.  
+
+![Leave One Out](./Images/LeaveOneOut.png)  
+  
+* Leave out 1 sample then train on all the others, repeat for all samples  
+
+#### Considerations  
+* For time series data, data must be used in "chunks"  
+* For k-fold cross validation  
+  + Larger k = less bias, more variance  
+  + Smaller k = more bias, less variance  
+* Random sampling must be done *without replacement*  
+* Random sampling with replacement is the *bootstrap*  
+  + Underestimates of the error  
+  + Can be corrected, but it is complicated (**[0.632 Bootstrap](https://www.jstor.org/stable/2965703?seq=1)**)  
+* If you cross-validate to pick predictors estimate you must estiamte errors on independent data.  
+
+
+
 ### What Data Should You Use?  
+* If you want to predict something about *X* use data related to *X* (Use like to predict like)  
+  + To predict player performance use data about player performance  
+  + To predict movie preferences use data about movie preferences  
+  + To predict hospitalizations sue data about hospitalizations  
+* The closer the data is to the process you want to predict the better the predictions will be  
+* The looser connection the harder the prediction may be  
+  + *On Cotype DX* uses gene expression to predict one's longevity and effectiveness of treatments for those with breast cancer.  
+* Unrelated data is the most common mistake, **[for example:](http://www.nejm.org/doi/full/10.1056/NEJMon1211064)**  
+![Chocolate Consumption vs. Nobel Prizes](./Images/choc.png)
+  
+  + There are many alternate variables one could look at that are more realisticly correlated  
+
 
 **Reminder to Commit (04), Delete this line** ***AFTER*** **Committing**  
 
