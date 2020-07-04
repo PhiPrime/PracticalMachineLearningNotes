@@ -508,10 +508,37 @@ What Cross-Validation is used for:
   
   + There are many alternate variables one could look at that are more realisticly correlated  
 
-
-**Reminder to Commit (04), Delete this line** ***AFTER*** **Committing**  
-
 ## Quiz 1  
+(Note 1-4 were multiple choice of material covered in the notes)  
+
+5. Suppose that we have created a machine learning algorithm that predicts whether a link will be clicked with 99% sensitivity and 99% specificity. The rate the link is clicked is 1/1000 of visits to a website. If we predict the link will be clicked on a specific visit, what is the probability it will actually be clicked?
+
+```{r}
+sens <- 0.99  #TP/(TP+FN)
+spec <- 0.99  #TN/(FP+TN)
+rate <- 1/1000 #sum(TP+FN), 1-r is sum(FP+TN)  
+#ppv = TP/(TP + FP)
+
+#rate = TP+FN,
+#rate - TP = FN
+#sens * (TP+FN) = TP,
+#sens * (TP + rate - TP) = TP,
+#TP = sens * rate
+TP <- sens * rate
+
+#1 - rate = FP + TN,
+#1 - rate - FP = TN
+
+#spec * (FP+TN) = TN,
+#spec * (FP+1 - rate - FP) = 1 - rate - FP
+#spec * (1 - rate) = 1 - rate - FP
+# FP = 1 - rate - (spec* (1-rate))
+# FP = (1-rate)*(1-spec)
+FP <- (1-rate)*(1-spec)
+ppv <- TP/(TP + FP)
+ppv
+```
+
 
 **Reminder to Commit (Q1), Delete this line** ***AFTER*** **Committing**  
 
