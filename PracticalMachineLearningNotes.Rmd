@@ -1147,11 +1147,204 @@ confusionMatrix(testing$type, predict(modelFit, testing))
 * More info: **[Elements of Statistical Learning](http://statweb.stanford.edu/~tibs/ElemStatLearn/)**  
 
 
-**Reminder to Commit (06), Delete this line** ***AFTER*** **Committing**  
-
 ## Predicting  
 ### Predicting with Regression  
+* **[Covered more fully in my notes for Regression Models](https://github.com/PhiPrime/RegressionModelsNotes)**  
+
+#### Key Ideas  
+* Fit a Simple Regression Model  
+* Plug in new covariates and multiply by the coefficients  
+* Useful when the linear model is (nearly correct)
+**Pros:**  
+* Easy to implement  
+* Easy to interpret  
+**Cons:**  
+* Often poor performance in nonlinear settings  
+
+#### Example: Old Faithful Eruptions  
+```{r}
+data(faithful)
+library(caret)
+set.seed(333)
+inTrain <- createDataPartition(y = faithful$waiting, p = 0.5, list = FALSE)
+
+trainFaith <- faithful[inTrain, ]
+testFaith <- faithful[-inTrain, ]
+head(trainFaith)
+```
+
+* Plot of eruption duration versus waiting time  
+```{r}
+plot(trainFaith$waiting, trainFaith$eruptions, pch = 19, col = "#0000FF",
+     xlab = "Waiting", ylab = "Duration")
+```
+
+* One can see a line that may be able to go through these points that shows longer waiting correlates to longer erruptions  
+
+#### Fit a Linear Model  
+* Formula we fit is with an Eruption Duration, $ED$, and Wait Time, $WT$, and a gaussian distributed error term, $e$:  
+$ED_i = b_0 + b_1WT_i+e_i$  
+```{r}
+lm1 <- lm(eruptions ~ waiting, data = trainFaith)
+summary(lm1)
+```
+
+* These $b_0$ and $b_1$ values are given by the respective rows in the `Estimate` column.  
+```{r}
+plot(trainFaith$waiting, trainFaith$eruptions, pch = 19, col = "#0000FF",
+     xlab = "Waiting", ylab = "Duration")
+lines(trainFaith$waiting, lm1$fitted, lwd = 3)
+```
+
+#### Predict a New Value  
+* Explicitly  
+```{r}
+newValue <- 80
+coef(lm1)[1] + coef(lm1)[2]*newValue
+```
+
+* With `predict`  
+```{r}
+#New value has to be named the same as explanatory variable
+newValue <- data.frame(waiting = 80) 
+predict(lm1, newValue)
+```
+
+#### Plot Predictions on the Test Set  
+```{r}
+plot(testFaith$waiting, testFaith$eruptions, pch = 19, col = "#0000FF",
+     xlab = "Waiting", ylab = "Duration")
+lines(testFaith$waiting, 
+      predict(lm1, 
+              newdata = testFaith), #Have to use info from train to predict
+      lwd = 3)
+```
+
+#### Get Training/Test Set Errors  
+```{r}
+# Calculate RMSE on training  
+sqrt(sum(
+  (lm1$fitted - trainFaith$eruptions)^2))
+
+# Calculate RMSE on test
+sqrt(sum(
+  (predict(lm1, newdata = testFaith) - testFaith$eruptions)^2))
+```
+
+#### Prediction Intervals  
+```{r}
+pred1 <- predict(lm1, newdata = testFaith, 
+                 interval = "prediction") #Returns intervals
+ord <- order(testFaith$waiting)
+plot(testFaith$waiting, testFaith$eruptions, pch = 19, col = "#0000FF")
+matlines(testFaith$waiting[ord], pred1[ord,], type= "l", 
+         col = c(1,2,2), lty = c(1,1,1), lwd = 3)
+```
+* Red lines are the 95% CI of the prediction  
+
+#### Same Process in caret Package  
+```{r}
+modFit <- train(eruptions ~ waiting, data = trainFaith, method = "lm")
+summary(modFit$finalModel)
+```
+
+#### Notes and Further Reading  
+* Regression models with multiple covariates can be included  
+* Often useful in combination with other models  
+* Further Reading:  
+  + **[Elements of statistical learning](http://www-stat.stanford.edu/~tibs/ElemStatLearn/)**  
+  + **[Modern applied statistics with S](http://www.amazon.com/Modern-Applied-Statistics-W-N-Venables/dp/0387954570)**  
+  + **[Introduction to statistical learning](http://www-bcf.usc.edu/~gareth/ISL/)**  
+
 ### Predicting with Regression Multiple Covariates  
+* We'll be using the `Wage` data  
+```{r message = FALSE}
+library(ISLR); data(Wage)
+library(ggplot2)
+library(caret)
+```
+
+* We're going to subset out the variable we're trying to predict, `logwage`  
+```{r}
+wage <- subset(Wage, select = -c(logwage))
+summary(wage)
+```
+
+* Get training/test sets  
+```{r}
+set.seed(1618033)
+inTrain <- createDataPartition(y = wage$wage, 
+                               p = 0.7, list = FALSE)
+training <- wage[inTrain, ]
+testing <- wage[-inTrain, ]
+dim(training); dim(testing)
+```
+
+* Feature plot, sometimes helpful to detect trends  
+```{r}
+featurePlot(x = training[,c("age", "education", "jobclass")],
+            y = training$wage,
+            plot = "pairs")
+```
+
+* This lecture is largely covering some exploratory analysis done before on these data so I'm going to put them all here.  
+```{r}
+qplot(age, wage, data = training)
+qplot(age, wage, colour = jobclass, data = training)
+qplot(age, wage, colour = education, data = training)
+```
+
+#### Fit a Linear Model  
+$ED_i = b_0 + b_1age + b_2I(Jobclass_i = "Information") + \sum_{k=1}^4\eta_kI(education_i=levelk)$  
+* $I(Jobclass_i= "Information")$ is how an indicator variable is indicated in mathematical notation. Likewise for the $\eta_kI(education_i=levelk)$ which is checking for the 5 catagories (only 4 DF)  
+```{r}
+modFit <- train(wage ~ age + jobclass + education,
+                method = "lm", data = training)
+finMod <- modFit$finalModel
+print(modFit)
+```
+
+#### Diagnostics  
+```{r}
+plot(finMod, 1, pch = 19, cex = 0.5, col = "#00000010")
+```
+
+* We can plot by variables not included in the model to help identify further outliers  
+```{r}
+qplot(finMod$fitted, finMod$residuals, colour = race, data = training)
+```
+
+* Plotting by index can sometimes give insight to entry issues  
+```{r}
+plot(finMod$residuals, pch = 19)
+```
+
+* If a trend was seen here it could suggest there is a varaible missing from the model.  
+
+#### Plotting Predicted Versus Truth in Test Set  
+```{r}
+pred <- predict(modFit, testing)
+qplot(wage, pred, colour = year, data = testing)
+```
+* Ideally we'd have an identity line that our prediction matched the truth, obviously that typically won't be the case  
+* This is more used as a "post-mortum" tool on your analysis as adjusting after this would be like using the test to train.  
+
+```{r warning = FALSE}
+#Using all covariates  
+modFitAll <- train(wage ~ ., data = training, method = "lm")
+pred <- predict(modFitAll, testing)
+qplot(wage, pred, data = testing)
+```
+* Useful if you don't want to do some sort of model selection in advance  
+
+#### Notes and Further Reading  
+* Regression models are often useful in combinaiton with other models.  
+* Further Reading:  
+  + **[Elements of statistical learning](http://www-stat.stanford.edu/~tibs/ElemStatLearn/)**
+  + **[Modern applied statistics with S](http://www.amazon.com/Modern-Applied-Statistics-W-N-Venables/dp/0387954570)**
+  + **[Introduction to statistical learning](http://www-bcf.usc.edu/~gareth/ISL/)**
+
+
 
 **Reminder to Commit (07), Delete this line** ***AFTER*** **Committing**  
 
