@@ -819,12 +819,333 @@ qplot(wage, colour = education, data = training, geom = "density")
 * **[ggplot2 tutorial](http://rstudio-pubs-static.s3.amazonaws.com/2176_75884214fc524dc0bc2a140573da38bb.html)**  
 * **[caret visualizations](http://caret.r-forge.r-project.org/visualizations.html)**  
 
-**Reminder to Commit (05), Delete this line** ***AFTER*** **Committing**  
 
 ## Preprocessing  
 ### Basic Preprocessing  
+* Sometimes variables need to be transformed to be more helpful for prediction algorithms  
+
+#### Why Preprocess? : Looking at SPAM Example  
+```{r}
+library(kernlab); data(spam)
+library(caret)
+set.seed(1618033)
+inTrain <- createDataPartition(y = spam$type,
+                               p = 0.75, list = FALSE)
+training <- spam[inTrain, ]
+testing <- spam[-inTrain, ]
+hist(training$capitalAve, main = "", xlab = "Ave. Capital Run Length")
+```
+
+* There are a few lengths that are large causing this overall distribution to be quite skewed, so you may want to standardize the variable. This can be seen because of the large standard deviation, `r round(sd(training$capitalAve), 2)`.  
+
+#### Standardizing  
+* Subtract the mean from each variable then divide by the sd.  
+```{r}
+trainCapAve <- training$capitalAve
+trainCapAveS <- (trainCapAve - mean(trainCapAve))/sd(trainCapAve)
+mean(trainCapAveS)
+sd(trainCapAveS)
+```
+* Standardizing a data set will make the mean nearly 0 and the sd 1 as it's now measuring z-scores  
+* When evaluating on the test set one can only use parameters that were estiamted from the training set. In other words when we standardize the testing set with have to use the mean & sd of the training set. This will result in the mean and sd not be 1 and 0, respectively.  
+```{r}
+testCapAve <- testing$capitalAve
+testCapAveS <- (testCapAve -
+                  mean(trainCapAve))/sd(trainCapAve)
+mean(testCapAveS)
+sd(testCapAveS)
+```
+
+##### Standardizing with preProcess Function  
+```{r}
+preObj <- preProcess(training[,-58], #Passing all variables except SPAM/HAM
+                     method = c("center", #Subtracts mean
+                                "scale")) #Divides by sd
+trainCapAveS <- predict(preObj, training[,-58])$capitalAve
+mean(trainCapAveS)
+sd(trainCapAveS)
+```
+* You can then use this object returned by `preProcess` to pre process the test set  
+```{r}
+testCapAveS <- predict(preObj, testing[,-58])$capitalAve
+mean(testCapAveS)
+sd(testCapAveS)
+```
+
+##### Standardizing with preProcess Argument  
+```{r warning = FALSE}
+set.seed(32343)
+modelFit <- train(type ~., data = training,
+                  preProcess = c("center", "scale"), 
+                  method = "glm")
+modelFit
+```
+
+##### Standardizing - Box-Cox Transforms  
+* BoxCox transforms are a set of transforms that take continous data and try to make them look like normal data. They do this by estimating a set of parameters based on maximum likelyhood  
+```{r}
+preObj <- preProcess(training[,-58], method = c("BoxCox"))
+trainCapAveS <- predict(preObj, training[,-58])$capitalAve
+par(mfrow = c(1,2))
+hist(trainCapAveS); qqnorm(trainCapAveS)
+```
+  
+* Note that there are still a stack of values at or around 0  
+  + This is because BoxCox does not take care of repeated variables  
+
+#### Imputing Data  
+```{r}
+set.seed(13343)
+
+# Creating some NA values  
+training$capAve <- training$capitalAve
+selectNA <- rbinom(dim(training)[1], size=1, prob = 0.05) == 1
+training$capAve[selectNA] <- NA
+
+# Impute and standardize  
+preObj <- preProcess(training[,-58], 
+                     method = "knnImpute") #K Nearest Neighbors Impute
+capAve <- predict(preObj, training[,-58])$capAve
+
+# Standardize true values  
+capAveTruth <- training$capitalAve
+capAveTruth <- (capAveTruth - mean(capAveTruth))/sd(capAveTruth)
+
+# How close was the imputting
+quantile(capAve - capAveTruth)  #all
+quantile((capAve - capAveTruth)[selectNA]) #only missing value
+quantile((capAve - capAveTruth)[!selectNA]) #exclude missing
+```
+
+#### Notes & Further Reading  
+* Training and test sets must be pre-processed in the same way  
+* Test transformations will likely be imperfect  
+  + Especially if the test/training sets are collected at different times or in different ways  
+* Careful when transforming factor variables!  
+* **[preprocessing with caret](http://caret.r-forge.r-project.org/preprocess.html)**  
+
 ### Covariate Creation  
+* Covariates are also called *predictors* or *features*, they are what variables are used and combined to predict the outcome you're looking at.  
+* The raw data usually takes form of an image or text file so you want to turn that into a quantifiable predictor. The goal is to describe the data as much as possible while also compressing the key components of the data. In spam example we look at things like:  
+  + Proportion of capital letters, `capitalAve`
+  + Frequency of a given word, `you`, or character, `numDollar` (dollar signs).
+* Sometimes after collecting the variables we want to transform the data to a more useful value, like squaring a value.  
+
+#### Level 1, Raw Data -> Covariates  
+* Depends heavily on application  
+* The balancing act is summarization vs. information loss  
+* Examples:  
+  + Text files: frequency fo words, frequency of phrases (**[Google ngrams](https://books.google.com/ngrams)**), frequency of capital letters.  
+  + Images: Edges, corners, blobs, ridges (**[computer vision feature detection](https://bit.ly/2VWq2Id)**)  
+  + Webpages: Number and type of images, position fo elements, colors, videos (**[A/B Testing](http://en.wikipedia.org/wiki/A/B_testing)**)  
+  + People: Height, weight, hair color, sex, country of orgin.  
+* The more knowledge of the system you have the better the job you will do at extracting features.  
+* When in doubt, err on the side of more features  
+* Can be automated, but use caution!  
+
+#### Level 2, Tidy Covariates -> New Covariates  
+* More necessary for some methods (regression, support vector machines (svms)) than for others (classification trees).  
+* Deciding how to create them should be done *only on the training set*  
+  + When applying the prediction you'll make these same mutations  
+* The best approach is through exploratory analysis (plotting/tables)  
+* New covariates should be added to data frames with recognizable names  
+
+#### Wage Example  
+```{r}
+library(caret)
+library(ISLR); data(Wage)
+set.seed(1618033)
+inTrain <- createDataPartition(y = Wage$wage,
+                               p = 0.7, list = FALSE)
+training <- Wage[inTrain, ]
+testing <- Wage[-inTrain, ]
+```
+
+##### Adding "Dummy Variables"  
+```{r}
+table(training$jobclass)
+```
+* Since jobs are either `Industrial` or `Information` we may want to melt this factor variable into two seperate logical columns  
+```{r}
+dummies <- dummyVars(wage ~ jobclass, data = training)
+head(predict(dummies, newdata = training))
+```
+
+##### Removing Zero Covariates  
+```{r}
+nsv <- nearZeroVar(training, saveMetrics = TRUE)
+nsv
+```
+
+* A `freqRatio` near 0 indicates that it rarely has a unique value.  
+* `TRUE` in either `zeroVar` or `nzv` indicates that you likely can remove that variable without losing any context.  
+
+##### Spline Basis  
+```{r}
+library(splines)
+bsBasis <- bs(training$age, df = 3)
+head(bsBasis,16)
+```
+  
+* `bs` is a basis function that creates a polynomial variables of the `df` degree, with each column being a higher order.  
+* Including these covariates allows for more curved of a model fit  
+```{r}
+lm1 <- lm(wage ~ bsBasis, data = training)
+plot(training$age, training$wage, pch = 10, cex = 0.5)
+points(training$age, predict(lm1, newdata = training), col = "#FF0000", pch = 19, cex = 0.5)
+```
+
+###### Splines on the Test Set  
+* You have to create the predictions on the test set with the exact same percedure you used on the training set.  
+* As such we have to predict what the variables of the testing set will be with the prediction from the training set.  
+```{r}
+predict(bsBasis, age = testing$age)
+```
+
+#### Notes and Further Reading  
+* Level 1 feature creation (raw data to covariates)  
+  + Science is key. Google "feature extraction for [data type]"  
+  + Err on overcreation of features, you can always filter them out later in the process.  
+  + In some applications (images, voices) automated feature creation is possible/necessary  
+  + **[A PDF on deep learning to auto create features for images and voice](http://www.cs.nyu.edu/~yann/talks/lecun-ranzato-icml2013.pdf)**  
+* Level 2 feature creation (covariates to new covariates)  
+  + The function `preProcess` in `caret` will handle some preprocessing  
+  + Create new covariates if you think they will improve fit  
+  + Use exploratory analysis on the training set for creating them  
+  + Be careful about overfitting!  
+* **[preprocessing with caret](http://caret.r-forge.r-project.org/preprocess.html)**  
+* If you want to fit spline models, use the `gam` method in the `caret` package which allows smoothing fo multiple variables.  
+* More on feature creation/data tidying in the **[Getting and Cleaning Data course](https://github.com/PhiPrime/LassoingDataNotes)**
+
+
 ### Preprocessing with Principal Components Analysis (PCA)  
+* Often there will be multiple quantitative variables that are highly correlated, as such one may want to create a summary that contains most of the information from those quantitative variables  
+
+#### Correlated predictors  
+```{r}
+library(caret)
+library(kernlab); data(spam)
+set.seed(1618033)
+inTrain <- createDataPartition(y = spam$type,
+                               p = 0.75, list = FALSE)
+training <- spam[inTrain, ]
+testing <- spam[-inTrain, ]
+
+M <- abs(cor(training[,-58]))#Remove SPAM/HAM value
+
+#Every variable has a correlation of 
+# 1 with itself so we remove those
+diag(M) <- 0 
+which(M > 0.8, arr.ind = TRUE)
+```
+* `num415`(col 32) and `num857` (col 34) often appear together. It seems the word `direct` does too but we'll just look at the numbers in this example  
+```{r}
+rows <- c(34, 32, 40)
+n <- names(spam)[rows]
+n[1:2]
+plot(spam[,rows[1]], spam[,rows[2]], xlab = n[1], ylab = n[2])
+```
+
+* Plotting them with eachother shows that they seem to be almost exactly 1-to-1. As such we could probably use less information to convey that both variables are present.  
+
+```{r}
+#Looking at plots of that direct variable too
+plot(spam[,rows[1]], spam[,rows[3]], xlab = n[1], ylab = n[3])
+plot(spam[,rows[2]], spam[,rows[3]], xlab = n[2], ylab = n[3])
+```
+
+* `direct` may not be as strongly correlated but seeing the simularity in those two graphs builds a greater case for `num415` and `num857` being highly correlated.  
+
+##### We Could Rotate the Plot  
+* We'll be using `0.71` because it is a result from PCA later.  
+```{r}
+X <- 0.71*training$num415 + 0.71*training$num857
+Y <- 0.71*training$num415 - 0.71*training$num857
+plot(X,Y)
+```
+* We can see there is not a lot of variation on the Y axis, the difference  
+* Most of the variability occurs on the X axis, the sum, as such we may want to use the sum as a predictor since it captures most of the information from the two variables.  
+
+#### Basic PCA Idea  
+* We might not need every predictor  
+* A weighted combination fo predictors might be better  
+* We should pick this combination to capture the "most information" possible  
+* Benefits  
+  + Reduced numeber of predictors  
+  + Reduced noise (due to averaging)  
+
+##### Related Probelms  
+* You have multivariate variables $X_1, ..., X_n$ so $X_1 = (X_{11},...,X_{1m})$  
+  + Find a new set of multivariate variables that are uncorrelated and explain as much variance as possible.  
+  + If you put all the variables together in one matrix, find the best matrix created with fewer variables (lower rank) that explains the orginal data.  
+* The first goal is **statistical** and the second goal is **data compression**.  
+
+#### Related Solutions - PCA/SVD  
+* **[I also have notes on this from the Exploratory Data Analysis course](https://github.com/PhiPrime/ExploratoryDataAnalysisNotes)**  
+* SVD - Singular Value Decomposition  
+  + If $X$ is a matrix with each variable in a column and each observation in a row then the SVD is a "matrix decomposition"  
+$X = UDV^T$  
+  + Where the columns of $U$ are orthogonal (left singular vectors), the columns of $V$ are orthogonal (right singular vectors) and $D$ is a diagonal matric (singular values).  
+* PCA - Principal Component Analysis  
+  + The principal components are equal tot eh right singular values if you first scale (subtract the mean, divide by the standard deviation) the variables.  
+
+#### Principal Components in R - prcomp  
+```{r}
+smallSpam <- spam[,c(34,32)]
+prComp <- prcomp(smallSpam)
+plot(prComp$x[,1], prComp$x[,2])
+```
+
+* We can look at how `prcomp` is summing the variables  
+```{r}
+prComp$rotation
+```
+* Taking the coefficients of `PC1` & `PC2` for the sum and difference respectively  
+* PCA allows one to perform this operation when dealing with more than just two variables  
+
+#### PCA on SPAM data  
+```{r}
+typeColor <- ((spam$type == "spam") * 1 + 1)# Red if SPAM, Black if HAM
+
+# Apply log_10 to make data look more gaussian
+prComp <- prcomp(log10(spam[,-58]+1))
+
+plot(prComp$x[,1], prComp$x[,2], col = typeColor, xlab = "PC1", ylab = "PC2")
+```
+
+#### PCA with caret  
+```{r}
+preProc <- preProcess(log10(spam[,-58] + 1), method = "pca", pcaComp = 2)
+spamPC <- predict(preProc, log10(spam[,-58] + 1))
+plot(spamPC[,1], spamPC[,2], col = typeColor)
+```
+
+#### Preprocessing with PCA  
+```{r warning = FALSE}
+preProc <- preProcess(log10(training[,-58] + 1), 
+                      method = "pca", pcaComp = 2)
+trainPC <- predict(preProc, log10(training[,-58] + 1))
+modelFit <- train(y = training$type, x = trainPC, method = "glm")
+testPC <- predict(preProc, #Have to use training preProc procedure for test
+                  log10(testing[, -58] + 1))
+confusionMatrix(testing$type, predict(modelFit, testPC)) #Find result
+```
+
+#### Alternative: Built in PCA to train (sets # of PCs)  
+```{r warning = FALSE}
+modelFit <- train(type ~ ., method = "glm", 
+                  preProcess = "pca", data = training)
+confusionMatrix(testing$type, predict(modelFit, testing))
+```
+
+#### Final Notes on PCs  
+* Most useful for linear-type models  
+* Can make it harder to itnerpret predictors  
+* Watch out for outliers!  
+  + Transform first (with logs/Box Cox)  
+  + Plot predictors to identify problems  
+* More info: **[Elements of Statistical Learning](http://statweb.stanford.edu/~tibs/ElemStatLearn/)**  
+
 
 **Reminder to Commit (06), Delete this line** ***AFTER*** **Committing**  
 
