@@ -540,13 +540,284 @@ ppv
 ```
 
 
-**Reminder to Commit (Q1), Delete this line** ***AFTER*** **Committing**  
-
 # The Caret Package  
 ## Caret Package  
 ### Caret Package  
+* Can be installed with `install.packages("caret")`, details about the package **[can be found on cran](https://cran.r-project.org/web/packages/caret/index.html)**  
+
+#### Functionality  
+* Some preprocessing (cleaning)  
+  + `preProcess`  
+* Data splitting  
+  + `createDataPartition`  
+  + `createResample`  
+  + `createTimeSlices`  
+* Training/testing functions  
+  + `train`  
+  + `predict`  
+* Model comparison  
+  + `confusionMatrix`  
+  
+#### Machine Learning Algorithms in Base R  
+* Linear discriminant analysis  
+* Regression  
+* Naive Bayes  
+* Support vector machines  
+* Classification and regression trees  
+* Random forests  
+* Boosting  
+* etc.  
+* The interface for these algorithms is slightly different  
+![predict function parameters in base R](./Images/base_r_predict_params.png)  
+  
+* The `caret` package unifies these differences  
+
+#### SPAM Example: Data Splitting  
+```{r}
+library(caret)
+library(kernlab) #For data 
+data(spam)
+set.seed(32343)
+inTrain <- createDataPartition(y = spam$type,
+                               p = 0.75, #Proportion to subset
+                               list = FALSE) # =F returns indecies 
+training <- spam[inTrain, ]
+testing <- spam[-inTrain, ]
+dim(spam)
+dim(training)
+dim(spam)[1]*0.75 #Showing it took 75%
+```
+
+```{r warning = FALSE}
+set.seed(32343)
+modelFit <- train(type ~ ., data = training, method = "glm")
+modelFit
+```
+  
+* `Resampling: Bootstrapped (25 reps)` indicates that it used the Bootstrap method, with 25 replicates. It corrects for the error that can occur when using the bootstrap method  
+```{r}
+modelFit$finalModel
+```
+  
+* This shows all how all the variables are weighted  
+
+#### SPAM Example: Prediction  
+```{r}
+predictions <- predict(modelFit, newdata = testing)
+predictions[1:30]
+```
+
+#### SPAM Example: Confusion Matrix  
+```{r}
+confusionMatrix(predictions, testing$type)
+```
+
+* First gives a table of the predicted vs. true value  
+* Gives summary statistics  
+  + Accuracy & 95% CI for the accuracy  
+  + No Information Rate is the average loss, $L$, of $f$ over all combinations of $y_i$ and $x_j$, expressed with the formula: $\frac{1}{n^2}\sum_{i=1}^n\sum_{j=1}^nL(y_i,f(x_j))$  
+  + The **[Mcnemar's Test P-Value](https://en.wikipedia.org/wiki/McNemar%27s_test)** has a null hypothesis that the error rates are equivelant  
+  
+#### Further Information  
+* Caret tutorials:
+  + **[PDF caret tutorial](http://www.edii.uclm.es/~useR-2013/Tutorials/kuhn/user_caret_2up.pdf)**
+  + **[cran vignette PDF ](http://cran.r-project.org/web/packages/caret/vignettes/caret.pdf)**
+  + **[A paper introducing the caret package](http://www.jstatsoft.org/v28/i05/paper)**
+
+### Data Slicing  
+#### SPAM Example: Data Splitting  
+```{r}
+library(caret)
+library(kernlab); data(spam)
+inTrain <- createDataPartition(y = spam$type, 
+                               p = 0.75, list = FALSE)
+training <- spam[inTrain, ]
+testing <- spam[-inTrain, ]
+```
+
+#### SPAM Example: K-fold  
+```{r}
+set.seed(32323)
+folds <- createFolds(y=spam$type, k = 10,
+                    list = TRUE, returnTrain = TRUE) #Returns sample positions
+sapply(folds, length)
+folds[[1]][1:10]
+
+#You can also have it return the test set
+set.seed(32323)
+folds <- createFolds(y=spam$type, k = 10,
+                    list = TRUE, returnTrain = FALSE) #Returns sample positions
+sapply(folds, length)
+folds[[1]][1:10]
+
+```
+
+#### SPAM Example: Resampling  
+```{r}
+set.seed(32323)
+folds <- createResample(y = spam$type, times = 10,
+                        list = TRUE)
+sapply(folds, length)
+folds[[1]][1:10] #Contains some resampled values
+```
+
+#### SPAM Example: Time Slices  
+```{r}
+set.seed(32323)
+tme <- 1:1000
+folds <- createTimeSlices(y = tme, 
+                          initialWindow = 20, #consecutive ... training set 
+                          horizon = 10)#Consecutive values in each test set
+names(folds)
+folds$train[[1]]
+folds$test[[1]]
+```
+
+
 ### Training Options  
+```{r warning=FALSE}
+## Still using SPAM set  
+library(caret)
+library(kernlab); data(spam)
+inTrain <- createDataPartition(y = spam$type, p = 0.75, list = FALSE)
+training <- spam[inTrain, ]
+testing <- spam[-inTrain, ]
+modelFit <- train(type ~., data = training, method = "glm")
+```
+
+#### Train Options  
+```{r}
+args(caret:::train.default)
+```
+  
+* One can change ...  
+  + `preProcess` to change preprocessing options (covered later)  
+  + `weights` to assign weights to the variables (Useful for unbalanced training set)  
+  + `metric` to change what is measured, default is that Accuracy is measured for catagorigal variables and RMSE otherwise. Below are some of the other options:  
+    - RMSE = Root mean squared error  
+    - RSquared = $R^2$ from regression models  
+    - Accuracy = Fraction correct  
+    - Kappa = A measure of **[concordance](http://en.wikipedia.org/wiki/Cohen%27s_kappa)**    
+    
+  + `trControl` = Calls to `trainControl` function which has more of it's own settings:  
+```{r}
+args(trainControl)
+```
+    - `method` will determine how it samples data, along with the `number` of times and how many the process `repeats`.  
+    - `initialWindow` and `horizon` is for time based data  
+    - `savePredictions` if true will return all the predictors of each model  
+    - `summaryFunction` will determine the kind of summary returned  
+    - `preProcOptions` (Preprocessing options)  
+    - `seeds` is available to set seeds for all the diffrent resampling layers, helpful when running in parallel. Often useful to set an overall seed outside this argument.
+    
+#### trainControl Resampling  
+* `method`  
+  + *boot* = bootstrapping  
+  + *boot632* = bootstrapping with adjustment  
+  + *cv* = cross validation  
+  + *repeatedcv* = repeated cross validation  
+  + *LOOCV* = leave one out cross validation  
+* `number`  
+  + For boot/cross validation  
+  + Number of subsamples to take  
+* `repeats`  
+  + Number of times to repeat subsampling  
+  + If value is big this can slow things down  
+  
+* **[More info on model training and tuning](http://caret.r-forge.r-project.org/training.html)**  
+
+
 ### Plotting Predictors  
+```{r message = FALSE}
+#The example in this lesson will be using wages data from the ISLR package  
+library(ISLR); data(Wage)
+library(tidyverse)
+library(caret)
+summary(Wage)
+```
+  
+* From this we can see the data is all from Males in the Middle Atlantic region  
+```{r}
+## Creating training/test sets  
+set.seed(1618033)
+inTrain <- createDataPartition(y = Wage$wage,
+                               p = 0.7, list = FALSE)
+training <- Wage[inTrain, ]
+testing <- Wage[-inTrain, ]
+dim(training); dim(testing)
+```
+
+#### Looking at the Data  
+##### featurePlot  
+```{r}
+featurePlot(x = training[, c("age", "education", "jobclass")],
+            y = training$wage,
+            plot = "pairs")
+```
+
+* When looking at this plot one is looking for trends in the data, for example the second column of the first row shows a semi-positive correlation to the X, when deciphering the mess of words one can see this is our y, `wage`, against `education`; indicating higher education might correlate to a higher wage.  
+* Two catagorical variables against eachother are hard to decipher meaning from as they largely overlap.  
+
+##### qplot  
+* Quick plots in style of `ggplot`  
+```{r}
+qplot(age, wage, data = training)
+```
+
+* The odd subset of wages that are away from the others may be cause for some concern, as such we'd want to investigate this before making the model  
+```{r}
+qplot(age, wage, colour = jobclass, data = training)
+```
+
+* You can also add regression smoothers to investigate differences more  
+```{r}
+plot <- qplot(age, wage, colour = education, data = training)
+plot + geom_smooth(method = 'lm', formula = y ~ x)
+```
+
+##### Using cut2 to make factors  
+```{r warning = FALSE}
+library(Hmisc)
+cutWage <- cut2(training$wage, g = 3)
+table(cutWage)
+```
+```{r}
+bplot1 <- qplot(cutWage, age, data = training, fill = cutWage,
+               geom = c("boxplot"))
+bplot1
+```
+
+```{r}
+#Add points overlayed on boxplot
+bplot2 <- qplot(cutWage, age, data = training, fill = cutWage, 
+                geom = c("boxplot", "jitter"))
+bplot2
+```
+
+* Many points for each plot indicates the boxplots are well representing the data, if there were only a few then it would suggest the boxplots are not as representative  
+
+##### Tables  
+```{r}
+t1 <- table(cutWage, training$jobclass)
+t1
+prop.table(t1, 1) #Shows proportions, 1 for by row
+```
+
+##### Density Plots  
+```{r}
+qplot(wage, colour = education, data = training, geom = "density")
+```
+
+#### Notes and Further Reading  
+* Make your plots only in the training set  
+  + Don't use the test set for exploration!  
+* Things one should be looking for  
+  + Imbalance in outcomes/predictors  
+  + Outliers  
+  + Groups of points not explained by a predictor  
+  + Skewed variables  
+* **[ggplot2 tutorial](http://rstudio-pubs-static.s3.amazonaws.com/2176_75884214fc524dc0bc2a140573da38bb.html)**  
+* **[caret visualizations](http://caret.r-forge.r-project.org/visualizations.html)**  
 
 **Reminder to Commit (05), Delete this line** ***AFTER*** **Committing**  
 
