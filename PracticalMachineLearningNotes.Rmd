@@ -1346,9 +1346,118 @@ qplot(wage, pred, data = testing)
 
 
 
-**Reminder to Commit (07), Delete this line** ***AFTER*** **Committing**  
-
 ## Quiz 2  
+
+1. Load the Alzheimer's disease data:  
+```{r}
+library(AppliedPredictiveModeling)
+data(AlzheimerDisease)
+```
+
+* What commands will create non-overlapping training and test sets with about 50% of the observations assigned to each?  
+```{r}
+adData = data.frame(diagnosis,predictors)
+trainIndex = createDataPartition(diagnosis, p = 0.50,list=FALSE)
+training = adData[trainIndex,]
+testing = adData[-trainIndex,]
+```
+
+2. Load (and subset) the cement data with the following commands:  
+```{r}
+library(AppliedPredictiveModeling)
+data(concrete)
+library(caret)
+set.seed(1000)
+inTrain = createDataPartition(mixtures$CompressiveStrength, p = 3/4)[[1]]
+training = mixtures[inTrain,]
+testing = mixtures[-inTrain,]
+```
+
+Make a plot of the outcome (CompressiveStrength) versus the index of the samples. Color by each of the variables in the data set.  
+```{r message = FALSE}
+library(tidyverse)
+library(RColorBrewer)
+plot <- ggplot(training, 
+               aes(as.numeric(row.names(training)), CompressiveStrength)) +
+  scale_color_gradient(low = "#A43D18", high = "#5BC2E7")
+plot + geom_point(aes(col = Cement))
+plot + geom_point(aes(col = BlastFurnaceSlag))
+plot + geom_point(aes(col = FlyAsh))
+plot + geom_point(aes(col = Water))
+plot + geom_point(aes(col = Superplasticizer))
+plot + geom_point(aes(col = CoarseAggregate))
+plot + geom_point(aes(col = FineAggregate))
+plot + geom_point(aes(col = Age))
+plot + geom_point() + geom_smooth()
+```
+
+
+What do you notice in these plots?  
+* There is a non-random pattern in the plot of the outcome versus index that does not appear to be perfectly explained by any predictor suggesting a variable may be missing.  
+
+3. Make a histogram and confirm the `Superplasticizer` variable is skewed.  
+```{r}
+plot <- ggplot(training, aes(Superplasticizer)) + 
+  geom_histogram(bins = 50)
+plot
+```
+
+Normally you might use the log transform to try to make the data more symmetric. Why would that be a poor choice for this variable?  
+```{r}
+plot <- ggplot(training, aes(log(Superplasticizer + 1))) + 
+  geom_histogram(bins = 50)
+plot
+```
+  
+* The log transform does not reduce the skewness of the non-zero values of `Superplasticizer`  
+
+4. Load (and subset) the Alzheimer's disease data:  
+```{r}
+library(caret)
+library(AppliedPredictiveModeling)
+set.seed(3433)
+data(AlzheimerDisease)
+adData = data.frame(diagnosis,predictors)
+inTrain = createDataPartition(adData$diagnosis, p = 3/4)[[1]]
+training = adData[ inTrain,]
+testing = adData[-inTrain,]
+```
+Find all the predictor variables in the training set that begin with IL.  
+```{r}
+begIL <- grepl("^IL", colnames(training))
+```
+
+Perform principal componetns on these variables with the `preProcess()` function from the `caret` package. Calculate the number of principal components needed to capture 80% of the variance. How many are there?  
+```{r}
+ILset <- training[,begIL]
+preProc <- preProcess(ILset, method = "pca", thresh = 0.8)
+preProc
+```
+
+5. With the Alzheimer's training data set consisting of only the predictors with variable names beginning with IL and the diagnosis. Build two predictive models, one using the predictors as they are and one using PCA with principal components explaining 80% of the variance in the predictors. Use `method = "glm"` in the train function.  
+```{r warning = FALSE}
+trainIL <- cbind(diagnosis = training$diagnosis, ILset)
+preProc <- preProcess(trainIL, method = "pca", thresh = 0.8)
+ILPC <- predict(preProc, trainIL)
+
+NonPCA <- train(diagnosis ~., data = trainIL, method = "glm")
+WithPCA <- train(diagnosis ~., data = trainIL, method = "glm",
+                 preProcess = "pca", trControl = trainControl(
+                   preProcOptions = list(thresh = 0.8)))
+```
+
+What is the accuracy of each method in the test set? Which is more accurate?  
+```{r}
+nopcres <- confusionMatrix(testing$diagnosis, 
+                           predict(NonPCA, testing))
+pcres <- confusionMatrix(testing$diagnosis, 
+                         predict(WithPCA, testing))
+round(nopcres$overall[1], 2)
+round(pcres$overall[1], 2)
+```
+
+
+
 
 **Reminder to Commit (Q2), Delete this line** ***AFTER*** **Committing**  
 
