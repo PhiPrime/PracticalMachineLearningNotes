@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2020.1.12)  9 JUL 2020 07:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2020.1.12)  9 JUL 2020 11:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -753,7 +753,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 261--263
 
  []
 
-
+[5]
 Underfull \hbox (badness 10000) in paragraph at lines 264--266
 
  []
@@ -763,8 +763,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 278--281
 
  []
 
-[5]
-<./Images/ML_Main_Idea.png, id=707, 843.15pt x 521.95pt>
+<./Images/ML_Main_Idea.png, id=740, 843.15pt x 521.95pt>
 File: ./Images/ML_Main_Idea.png Graphic file (type png)
 <use ./Images/ML_Main_Idea.png>
 Package pdftex.def Info: ./Images/ML_Main_Idea.png  used on input line 283.
@@ -789,7 +788,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 297--300
 
  []
 
-
+[6 <./Images/ML_Main_Idea.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 318--320
 
  []
@@ -809,7 +808,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 326--330
 
  []
 
-[6 <./Images/ML_Main_Idea.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 342--343
 
  []
@@ -849,6 +848,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 431--434
 
  []
 
+[7]
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 440.
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmtt.fd
@@ -863,7 +863,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 442--445
 
  []
 
-[7]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 454.
 
@@ -890,7 +889,7 @@ Overfull \hbox (18.88733pt too wide) in paragraph at lines 520--520
 m": 2 2 2 2 2 2 2 2 2 2 ...[] 
  []
 
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-2-1.pdf, id=740
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-2-1.pdf, id=775
 , 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-2-1.pdf Gr
 aphic file (type pdf)
@@ -898,7 +897,7 @@ aphic file (type pdf)
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
 ed-chunk-2-1.pdf  used on input line 530.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
+[9]
 Underfull \hbox (badness 10000) in paragraph at lines 535--538
 
  []
@@ -908,12 +907,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 538--541
 
  []
 
-[9 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-2-1.pdf>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 546--548
 
  []
 
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-3-1.pdf, id=750
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-3-1.pdf, id=780
 , 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-3-1.pdf Gr
 aphic file (type pdf)
@@ -921,12 +920,13 @@ aphic file (type pdf)
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
 ed-chunk-3-1.pdf  used on input line 561.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[10 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-2-1.pdf>]
 
 Underfull \hbox (badness 10000) in paragraph at lines 566--569
 
  []
 
-[10 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-3-1.pdf>]
+[11 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-3-1.pdf>]
 
 Underfull \hbox (badness 10000) in paragraph at lines 620--622
 
@@ -972,7 +972,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 659--661
 
  []
 
-<./Images/Linear_vs_Model.png, id=763, 772.8875pt x 476.78125pt>
+<./Images/Linear_vs_Model.png, id=804, 772.8875pt x 476.78125pt>
 File: ./Images/Linear_vs_Model.png Graphic file (type png)
 <use ./Images/Linear_vs_Model.png>
 Package pdftex.def Info: ./Images/Linear_vs_Model.png  used on input line 671.
@@ -982,7 +982,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 678--681
 
  []
 
-[11]
+
 Underfull \hbox (badness 10000) in paragraph at lines 700--702
 
  []
@@ -992,7 +992,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 709--710
 
  []
 
-
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 717--719
 
  []
@@ -1007,7 +1007,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 746--749
 
  []
 
-[12 <./Images/Linear_vs_Model.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 755--760
 
  []
@@ -1017,7 +1017,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 784--788
 
  []
 
-
+[13 <./Images/Linear_vs_Model.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 788--791
 
  []
@@ -1047,8 +1047,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 815--816
 
  []
 
-[13]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-5-1.pdf, id=799
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-5-1.pdf, id=829
 , 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-5-1.pdf Gr
 aphic file (type pdf)
@@ -1056,7 +1055,7 @@ aphic file (type pdf)
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
 ed-chunk-5-1.pdf  used on input line 842.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 850--852
 
  []
@@ -1066,7 +1065,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 860--862
 
  []
 
-[14 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-5-1.pdf>]
+[15 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-5-1.pdf>]
 
 Underfull \hbox (badness 10000) in paragraph at lines 895--897
 
@@ -1077,7 +1076,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 897--899
 
  []
 
-[15]
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 1018--1020
 
  []
@@ -1127,12 +1126,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1063--1066
 
  []
 
-[16]
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 1085--1087
 
  []
 
-<./Images/studyDesign.png, id=830, 312.16624pt x 357.335pt>
+<./Images/studyDesign.png, id=869, 312.16624pt x 357.335pt>
 File: ./Images/studyDesign.png Graphic file (type png)
 <use ./Images/studyDesign.png>
 Package pdftex.def Info: ./Images/studyDesign.png  used on input line 1109.
@@ -1142,7 +1141,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1116--1120
 
  []
 
-[17 <./Images/studyDesign.png>]
+[18 <./Images/studyDesign.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 1120--1123
 
  []
@@ -1212,7 +1211,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1212--1214
 
  []
 
-[18]
+[19]
 Underfull \hbox (badness 10000) in paragraph at lines 1214--1216
 
  []
@@ -1257,7 +1256,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1292--1295
 
  []
 
-[19]
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 1295--1298
 
  []
@@ -1307,7 +1306,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1367--1369
 
  []
 
-[20]
+[21]
 Underfull \hbox (badness 10000) in paragraph at lines 1369--1371
 
  []
@@ -1377,7 +1376,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1464--1465
 
  []
 
-[21]
+[22]
 Underfull \hbox (badness 10000) in paragraph at lines 1472--1473
 
  []
@@ -1417,7 +1416,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1519--1522
 
  []
 
-<./Images/ROCexample.png, id=875, 90.3375pt x 87.62738pt>
+<./Images/ROCexample.png, id=915, 90.3375pt x 87.62738pt>
 File: ./Images/ROCexample.png Graphic file (type png)
 <use ./Images/ROCexample.png>
 Package pdftex.def Info: ./Images/ROCexample.png  used on input line 1523.
@@ -1437,7 +1436,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1543--1545
 
  []
 
-[22 <./Images/ROCexample.png>]
+[23 <./Images/ROCexample.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 1571--1573
 
  []
@@ -1452,18 +1451,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 1575--1578
 
  []
 
-<./Images/randomSubsampling.png, id=885, 653.44125pt x 426.59375pt>
+<./Images/randomSubsampling.png, id=925, 653.44125pt x 426.59375pt>
 File: ./Images/randomSubsampling.png Graphic file (type png)
 <use ./Images/randomSubsampling.png>
 Package pdftex.def Info: ./Images/randomSubsampling.png  used on input line 159
 9.
 (pdftex.def)             Requested size: 469.74948pt x 306.67207pt.
-<./Images/kfold.png, id=886, 613.29124pt x 416.55624pt>
+<./Images/kfold.png, id=926, 613.29124pt x 416.55624pt>
 File: ./Images/kfold.png Graphic file (type png)
 <use ./Images/kfold.png>
 Package pdftex.def Info: ./Images/kfold.png  used on input line 1605.
 (pdftex.def)             Requested size: 469.75583pt x 319.06493pt.
-<./Images/LeaveOneOut.png, id=887, 613.29124pt x 425.59pt>
+<./Images/LeaveOneOut.png, id=927, 613.29124pt x 425.59pt>
 File: ./Images/LeaveOneOut.png Graphic file (type png)
 <use ./Images/LeaveOneOut.png>
 Package pdftex.def Info: ./Images/LeaveOneOut.png  used on input line 1617.
@@ -1498,7 +1497,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1655--1658
 
  []
 
-[23] [24 <./Images/randomSubsampling.png>] [25 <./Images/kfold.png>] [26 <./Ima
+[24] [25 <./Images/randomSubsampling.png>] [26 <./Images/kfold.png>] [27 <./Ima
 ges/LeaveOneOut.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 1676--1678
 
@@ -1524,12 +1523,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1691--1693
 
  []
 
-<./Images/choc.png, id=919, 799.98875pt x 644.4075pt>
+<./Images/choc.png, id=958, 799.98875pt x 644.4075pt>
 File: ./Images/choc.png Graphic file (type png)
 <use ./Images/choc.png>
 Package pdftex.def Info: ./Images/choc.png  used on input line 1698.
 (pdftex.def)             Requested size: 442.38771pt x 356.35246pt.
-[27] [28 <./Images/choc.png>]
+[28] [29 <./Images/choc.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 1786--1787
 
  []
@@ -1559,7 +1558,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1808--1809
 
  []
 
-[29]
+[30]
 Underfull \hbox (badness 10000) in paragraph at lines 1826--1828
 
  []
@@ -1599,13 +1598,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 1840--1842
 
  []
 
-<./Images/base_r_predict_params.png, id=943, 602.25pt x 185.69376pt>
+<./Images/base_r_predict_params.png, id=982, 602.25pt x 185.69376pt>
 File: ./Images/base_r_predict_params.png Graphic file (type png)
 <use ./Images/base_r_predict_params.png>
 Package pdftex.def Info: ./Images/base_r_predict_params.png  used on input line
  1843.
 (pdftex.def)             Requested size: 442.3957pt x 136.40535pt.
-[30 <./Images/base_r_predict_params.png>] [31] [32]
+[31 <./Images/base_r_predict_params.png>] [32] [33]
 Underfull \hbox (badness 10000) in paragraph at lines 2061--2063
 
  []
@@ -1620,7 +1619,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2070--2074
 
  []
 
-[33] [34]
+[34] [35]
 Overfull \hbox (30.3848pt too wide) in paragraph at lines 2271--2271
 []\T1/lmtt/m/n/10.95 ##     metric = ifelse(is.factor(y), "Accuracy", "RMSE"), 
 maximize = ifelse(metric %in%[] 
@@ -1636,7 +1635,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2284--2287
 
  []
 
-[35]
+[36]
 Underfull \hbox (badness 10000) in paragraph at lines 2294--2296
 
  []
@@ -1694,7 +1693,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2367--2369
 
  []
 
-[36]
+[37]
 Underfull \hbox (badness 10000) in paragraph at lines 2369--2370
 
  []
@@ -1704,9 +1703,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 2377--2379
 
  []
 
-[37]
+[38]
 <PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-27-1.pdf, id=10
-00, 469.755pt x 325.215pt>
+39, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-27-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-27-1.pdf>
@@ -1718,10 +1717,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 2472--2478
 
  []
 
-[38 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-27-1.pdf>
+[39 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-27-1.pdf>
 ]
 <PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-28-1.pdf, id=10
-13, 469.755pt x 325.215pt>
+52, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-28-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-28-1.pdf>
@@ -1729,28 +1728,28 @@ Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
 ed-chunk-28-1.pdf  used on input line 2497.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-29-1.pdf, id=10
-14, 469.755pt x 325.215pt>
+53, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-29-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-29-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
 ed-chunk-29-1.pdf  used on input line 2513.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[39 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-28-1.pdf>
+[40 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-28-1.pdf>
 ]
 <PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-30-1.pdf, id=10
-26, 469.755pt x 325.215pt>
+65, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-30-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-30-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
 ed-chunk-30-1.pdf  used on input line 2528.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[40 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-29-1.pdf>
-] [41 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-30-1.pd
+[41 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-29-1.pdf>
+] [42 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-30-1.pd
 f>]
 <PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-32-1.pdf, id=10
-50, 469.755pt x 325.215pt>
+89, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-32-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-32-1.pdf>
@@ -1758,18 +1757,18 @@ Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
 ed-chunk-32-1.pdf  used on input line 2597.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-33-1.pdf, id=10
-51, 469.755pt x 325.215pt>
+90, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-33-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-33-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
 ed-chunk-33-1.pdf  used on input line 2608.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[42 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-32-1.pdf>
-] [43 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-33-1.pd
+[43 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-32-1.pdf>
+] [44 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-33-1.pd
 f>]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-35-1.pdf, id=10
-75, 469.755pt x 325.215pt>
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-35-1.pdf, id=11
+14, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-35-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-35-1.pdf>
@@ -1806,32 +1805,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 2690--2692
 
  []
 
-[44 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-35-1.pdf>
+[45 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-35-1.pdf>
 ]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-36-1.pdf, id=10
-89, 469.755pt x 325.215pt>
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-36-1.pdf, id=11
+29, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-36-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-36-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
 ed-chunk-36-1.pdf  used on input line 2726.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[45 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-36-1.pdf>
+[46 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-36-1.pdf>
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 2771--2774
 
  []
 
-[46]
+[47]
 <PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-42-1.pdf, id=11
-10, 469.755pt x 325.215pt>
+49, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-42-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-42-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
 ed-chunk-42-1.pdf  used on input line 2910.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[47] [48 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-42-1
+[48] [49 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-42-1
 .pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 2983--2985
 
@@ -1872,7 +1871,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3048--3052
 
  []
 
-[49]
+[50]
 Underfull \hbox (badness 10000) in paragraph at lines 3052--3056
 
  []
@@ -1907,18 +1906,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 3086--3088
 
  []
 
-[50]
+[51]
 Underfull \hbox (badness 10000) in paragraph at lines 3174--3177
 
  []
 
-[51]
+[52]
 Underfull \hbox (badness 10000) in paragraph at lines 3215--3218
 
  []
 
 <PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-49-1.pdf, id=11
-58, 469.755pt x 325.215pt>
+97, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-49-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-49-1.pdf>
@@ -1930,838 +1929,1070 @@ Underfull \hbox (badness 10000) in paragraph at lines 3236--3239
 
  []
 
-[52 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-49-1.pdf>
-] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [6
-8] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [
-84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96]
-Underfull \hbox (badness 10000) in paragraph at lines 5377--5379
+[53 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-49-1.pdf>
+]
+Underfull \hbox (badness 10000) in paragraph at lines 3275--3277
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5379--5382
+Underfull \hbox (badness 10000) in paragraph at lines 3277--3280
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5382--5385
+Underfull \hbox (badness 10000) in paragraph at lines 3280--3283
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5387--5388
+Underfull \hbox (badness 10000) in paragraph at lines 3285--3286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5395--5398
+Underfull \hbox (badness 10000) in paragraph at lines 3293--3296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5398--5400
+Underfull \hbox (badness 10000) in paragraph at lines 3296--3298
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5400--5402
+Underfull \hbox (badness 10000) in paragraph at lines 3298--3300
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5402--5403
+Underfull \hbox (badness 10000) in paragraph at lines 3300--3301
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5406--5408
+Underfull \hbox (badness 10000) in paragraph at lines 3304--3306
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5408--5411
+Underfull \hbox (badness 10000) in paragraph at lines 3306--3309
 
  []
 
-[97]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-52-1.pdf, id=13
-63, 469.755pt x 325.215pt>
+[54]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-52-1.pdf, id=12
+17, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-52-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-52-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-52-1.pdf  used on input line 5486.
+ed-chunk-52-1.pdf  used on input line 3384.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[98 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-52-1.pdf>
-]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-53-1.pdf, id=13
-74, 469.755pt x 325.215pt>
+[55]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-53-1.pdf, id=12
+23, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-53-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-53-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-53-1.pdf  used on input line 5503.
+ed-chunk-53-1.pdf  used on input line 3401.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-53-2.pdf, id=13
-75, 469.755pt x 325.215pt>
+[56 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-52-1.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-53-2.pdf, id=12
+33, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-53-2.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-53-2.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-53-2.pdf  used on input line 5511.
+ed-chunk-53-2.pdf  used on input line 3409.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[99 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-53-1.pdf>
+[57 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-53-1.pdf>
 ]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-54-1.pdf, id=13
-85, 469.755pt x 325.215pt>
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-54-1.pdf, id=12
+44, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-54-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-54-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-54-1.pdf  used on input line 5538.
+ed-chunk-54-1.pdf  used on input line 3436.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 5538--5544
+Underfull \hbox (badness 10000) in paragraph at lines 3436--3442
 [][]
  []
 
-[100 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-53-2.pdf
->]
-Underfull \hbox (badness 10000) in paragraph at lines 5551--5553
+[58 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-53-2.pdf>
+]
+Underfull \hbox (badness 10000) in paragraph at lines 3449--3451
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5553--5555
+Underfull \hbox (badness 10000) in paragraph at lines 3451--3453
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5555--5558
+Underfull \hbox (badness 10000) in paragraph at lines 3453--3456
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5563--5565
+Underfull \hbox (badness 10000) in paragraph at lines 3461--3463
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5581--5584
+Underfull \hbox (badness 10000) in paragraph at lines 3479--3482
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5584--5587
+Underfull \hbox (badness 10000) in paragraph at lines 3482--3485
 
  []
 
-[101 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-54-1.pdf
->]
-Underfull \hbox (badness 10000) in paragraph at lines 5601--5603
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 5608--5612
+[59 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-54-1.pdf>
+]
+Underfull \hbox (badness 10000) in paragraph at lines 3499--3501
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5612--5615
+Underfull \hbox (badness 10000) in paragraph at lines 3506--3510
 
  []
 
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-55-1.pdf, id=14
-10, 469.755pt x 325.215pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 3510--3513
+
+ []
+
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-55-1.pdf, id=12
+69, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-55-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-55-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-55-1.pdf  used on input line 5640.
+ed-chunk-55-1.pdf  used on input line 3538.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[102]
-Underfull \hbox (badness 10000) in paragraph at lines 5663--5666
+[60]
+Underfull \hbox (badness 10000) in paragraph at lines 3561--3564
 
  []
 
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-57-1.pdf, id=14
-17, 469.755pt x 325.215pt>
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-57-1.pdf, id=12
+76, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-57-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-57-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-57-1.pdf  used on input line 5684.
+ed-chunk-57-1.pdf  used on input line 3582.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[103 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-55-1.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-58-1.pdf, id=14
-29, 469.755pt x 325.215pt>
+[61 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-55-1.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-58-1.pdf, id=12
+88, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-58-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-58-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-58-1.pdf  used on input line 5697.
+ed-chunk-58-1.pdf  used on input line 3595.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[104 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-57-1.pdf
->] [105 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-58-1.
-pdf>] [106]
-Underfull \hbox (badness 10000) in paragraph at lines 5792--5794
+[62 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-57-1.pdf>
+] [63 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-58-1.pd
+f>] [64]
+Underfull \hbox (badness 10000) in paragraph at lines 3690--3692
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5794--5796
+Underfull \hbox (badness 10000) in paragraph at lines 3692--3694
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5801--5803
+Underfull \hbox (badness 10000) in paragraph at lines 3699--3701
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5803--5804
+Underfull \hbox (badness 10000) in paragraph at lines 3701--3702
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5831--5833
+Underfull \hbox (badness 10000) in paragraph at lines 3729--3731
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5833--5835
+Underfull \hbox (badness 10000) in paragraph at lines 3731--3733
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5835--5837
+Underfull \hbox (badness 10000) in paragraph at lines 3733--3735
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5837--5839
+Underfull \hbox (badness 10000) in paragraph at lines 3735--3737
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5839--5842
+Underfull \hbox (badness 10000) in paragraph at lines 3737--3740
 
  []
 
-[107]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-62-1.pdf, id=14
-66, 469.755pt x 325.215pt>
+[65]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-62-1.pdf, id=13
+25, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-62-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-62-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-62-1.pdf  used on input line 5885.
+ed-chunk-62-1.pdf  used on input line 3783.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[108 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-62-1.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-64-1.pdf, id=14
-77, 469.755pt x 325.215pt>
+[66 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-62-1.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-64-1.pdf, id=13
+36, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-64-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-64-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-64-1.pdf  used on input line 5948.
+ed-chunk-64-1.pdf  used on input line 3846.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[109 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-64-1.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-67-1.pdf, id=14
-90, 469.755pt x 325.215pt>
+[67 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-64-1.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-67-1.pdf, id=13
+48, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-67-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-67-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-67-1.pdf  used on input line 6005.
+ed-chunk-67-1.pdf  used on input line 3903.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[110 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-67-1.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-69-1.pdf, id=15
-02, 469.755pt x 325.215pt>
+[68 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-67-1.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-69-1.pdf, id=13
+61, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-69-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-69-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-69-1.pdf  used on input line 6049.
+ed-chunk-69-1.pdf  used on input line 3947.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 6049--6051
+Underfull \hbox (badness 10000) in paragraph at lines 3947--3949
 [][]
  []
 
-[111 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-69-1.pdf
->]
-Underfull \hbox (badness 10000) in paragraph at lines 6091--6093
+[69 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-69-1.pdf>
+]
+Underfull \hbox (badness 10000) in paragraph at lines 3989--3991
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6093--6095
+Underfull \hbox (badness 10000) in paragraph at lines 3991--3993
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6101--6103
+Underfull \hbox (badness 10000) in paragraph at lines 3999--4001
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6104--6106
+Underfull \hbox (badness 10000) in paragraph at lines 4002--4004
 
  []
 
-[112]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-74-1.pdf, id=15
-23, 469.755pt x 325.215pt>
+[70]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-74-1.pdf, id=13
+82, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-74-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-74-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-74-1.pdf  used on input line 6209.
+ed-chunk-74-1.pdf  used on input line 4107.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[113]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-1.pdf, id=15
-28, 469.755pt x 325.215pt>
+[71]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-1.pdf, id=13
+87, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-75-1.pdf  used on input line 6224.
+ed-chunk-75-1.pdf  used on input line 4122.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[114 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-74-1.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-2.pdf, id=15
-38, 469.755pt x 325.215pt>
+[72 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-74-1.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-2.pdf, id=13
+97, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-2.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-2.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-75-2.pdf  used on input line 6232.
+ed-chunk-75-2.pdf  used on input line 4130.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[115 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-1.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-3.pdf, id=15
-49, 469.755pt x 325.215pt>
+[73 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-1.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-3.pdf, id=14
+08, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-3.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-3.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-75-3.pdf  used on input line 6240.
+ed-chunk-75-3.pdf  used on input line 4138.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[116 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-2.pdf
->] [117 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-3.
-pdf>]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-77-1.pdf, id=15
-69, 469.755pt x 325.215pt>
+[74 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-2.pdf>
+] [75 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-75-3.pd
+f>]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-77-1.pdf, id=14
+28, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-77-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-77-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-77-1.pdf  used on input line 6286.
+ed-chunk-77-1.pdf  used on input line 4184.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-78-1.pdf, id=15
-70, 469.755pt x 325.215pt>
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-78-1.pdf, id=14
+29, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-78-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-78-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-78-1.pdf  used on input line 6301.
+ed-chunk-78-1.pdf  used on input line 4199.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[118 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-77-1.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-79-1.pdf, id=15
-85, 469.755pt x 325.215pt>
+[76 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-77-1.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-79-1.pdf, id=14
+44, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-79-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-79-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-79-1.pdf  used on input line 6315.
+ed-chunk-79-1.pdf  used on input line 4213.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[119 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-78-1.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-80-1.pdf, id=15
-95, 469.755pt x 325.215pt>
+[77 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-78-1.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-80-1.pdf, id=14
+54, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-80-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-80-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-80-1.pdf  used on input line 6335.
+ed-chunk-80-1.pdf  used on input line 4233.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 6335--6340
+Underfull \hbox (badness 10000) in paragraph at lines 4233--4238
 [][]
  []
 
-[120 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-79-1.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-81-1.pdf, id=16
-06, 469.755pt x 325.215pt>
+[78 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-79-1.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-81-1.pdf, id=14
+65, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-81-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-81-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-81-1.pdf  used on input line 6350.
+ed-chunk-81-1.pdf  used on input line 4248.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 6350--6352
+Underfull \hbox (badness 10000) in paragraph at lines 4248--4250
 [][]
  []
 
-[121 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-80-1.pdf
->]
-Underfull \hbox (badness 10000) in paragraph at lines 6360--6362
+[79 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-80-1.pdf>
+]
+Underfull \hbox (badness 10000) in paragraph at lines 4258--4260
 
  []
 
-[122 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-81-1.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-1.pdf, id=16
-34, 469.755pt x 325.215pt>
+[80 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-81-1.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-1.pdf, id=14
+93, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-85-1.pdf  used on input line 6445.
+ed-chunk-85-1.pdf  used on input line 4343.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[123 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-1.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-2.pdf, id=16
-46, 469.755pt x 325.215pt>
+[81 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-1.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-2.pdf, id=15
+05, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-2.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-2.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-85-2.pdf  used on input line 6453.
+ed-chunk-85-2.pdf  used on input line 4351.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-3.pdf, id=16
-47, 469.755pt x 325.215pt>
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-3.pdf, id=15
+06, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-3.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-3.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-85-3.pdf  used on input line 6461.
+ed-chunk-85-3.pdf  used on input line 4359.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[124 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-2.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-4.pdf, id=16
-58, 469.755pt x 325.215pt>
+[82 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-2.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-4.pdf, id=15
+17, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-4.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-4.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-85-4.pdf  used on input line 6469.
+ed-chunk-85-4.pdf  used on input line 4367.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[125 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-3.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-5.pdf, id=16
-69, 469.755pt x 325.215pt>
+[83 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-3.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-5.pdf, id=15
+28, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-5.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-5.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-85-5.pdf  used on input line 6477.
+ed-chunk-85-5.pdf  used on input line 4375.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[126 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-4.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-6.pdf, id=16
-80, 469.755pt x 325.215pt>
+[84 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-4.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-6.pdf, id=15
+39, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-6.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-6.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-85-6.pdf  used on input line 6485.
+ed-chunk-85-6.pdf  used on input line 4383.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[127 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-5.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-7.pdf, id=16
-92, 469.755pt x 325.215pt>
+[85 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-5.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-7.pdf, id=15
+51, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-7.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-7.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-85-7.pdf  used on input line 6493.
+ed-chunk-85-7.pdf  used on input line 4391.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[128 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-6.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-8.pdf, id=17
-03, 469.755pt x 325.215pt>
+[86 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-6.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-8.pdf, id=15
+62, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-8.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-8.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-85-8.pdf  used on input line 6501.
+ed-chunk-85-8.pdf  used on input line 4399.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[129 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-7.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-9.pdf, id=17
-14, 469.755pt x 325.215pt>
+[87 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-7.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-9.pdf, id=15
+73, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-9.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-9.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-85-9.pdf  used on input line 6509.
+ed-chunk-85-9.pdf  used on input line 4407.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[130 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-8.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-86-1.pdf, id=17
-25, 469.755pt x 325.215pt>
+[88 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-8.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-86-1.pdf, id=15
+84, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-86-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-86-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-86-1.pdf  used on input line 6533.
+ed-chunk-86-1.pdf  used on input line 4431.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[131 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-9.pdf
->]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-87-1.pdf, id=17
-39, 469.755pt x 325.215pt>
+[89 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-85-9.pdf>
+]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-87-1.pdf, id=15
+98, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-87-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-87-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-87-1.pdf  used on input line 6546.
+ed-chunk-87-1.pdf  used on input line 4444.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[132 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-86-1.pdf
->] [133 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-87-1.
-pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 6680--6682
+[90 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-86-1.pdf>
+] [91 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-87-1.pd
+f>]
+Underfull \hbox (badness 10000) in paragraph at lines 4578--4580
 
  []
 
-[134]
-Underfull \hbox (badness 10000) in paragraph at lines 6682--6684
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 6684--6688
+[92]
+Underfull \hbox (badness 10000) in paragraph at lines 4580--4582
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6688--6690
+Underfull \hbox (badness 10000) in paragraph at lines 4582--4586
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6690--6693
+Underfull \hbox (badness 10000) in paragraph at lines 4586--4588
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6693--6695
+Underfull \hbox (badness 10000) in paragraph at lines 4588--4591
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6695--6697
+Underfull \hbox (badness 10000) in paragraph at lines 4591--4593
 
  []
 
-<./Images/Obama-Clinton_Decision_Tree.jpg, id=1770, 652.4375pt x 1035.87pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 4593--4595
+
+ []
+
+<./Images/Obama-Clinton_Decision_Tree.jpg, id=1629, 652.4375pt x 1035.87pt>
 File: ./Images/Obama-Clinton_Decision_Tree.jpg Graphic file (type jpg)
 <use ./Images/Obama-Clinton_Decision_Tree.jpg>
 Package pdftex.def Info: ./Images/Obama-Clinton_Decision_Tree.jpg  used on inpu
-t line 6705.
+t line 4603.
 (pdftex.def)             Requested size: 409.68387pt x 650.45192pt.
 
-LaTeX Warning: Float too large for page by 25.75105pt on input line 6707.
+LaTeX Warning: Float too large for page by 25.75105pt on input line 4605.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6712--6715
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 6727--6729
+Underfull \hbox (badness 10000) in paragraph at lines 4610--4613
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6729--6731
+Underfull \hbox (badness 10000) in paragraph at lines 4625--4627
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6731--6734
+Underfull \hbox (badness 10000) in paragraph at lines 4627--4629
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6734--6737
+Underfull \hbox (badness 10000) in paragraph at lines 4629--4632
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6746--6750
+Underfull \hbox (badness 10000) in paragraph at lines 4632--4635
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6755--6757
-
- []
-
-[135] [136 <./Images/Obama-Clinton_Decision_Tree.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 6798--6801
+Underfull \hbox (badness 10000) in paragraph at lines 4644--4648
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6801--6804
+Underfull \hbox (badness 10000) in paragraph at lines 4653--4655
+
+ []
+
+[93] [94 <./Images/Obama-Clinton_Decision_Tree.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 4696--4699
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6813--6816
+Underfull \hbox (badness 10000) in paragraph at lines 4699--4702
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6816--6819
+Underfull \hbox (badness 10000) in paragraph at lines 4711--4714
 
  []
 
-[137]
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-96-1.pdf, id=17
-99, 469.755pt x 325.215pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 4714--4717
+
+ []
+
+[95]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-96-1.pdf, id=16
+58, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-96-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-96-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-96-1.pdf  used on input line 6883.
+ed-chunk-96-1.pdf  used on input line 4781.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[138 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-96-1.pdf
->]
-Overfull \hbox (1.64113pt too wide) in paragraph at lines 6923--6923
+[96 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-96-1.pdf>
+]
+Overfull \hbox (1.64113pt too wide) in paragraph at lines 4821--4821
 []\T1/lmtt/m/n/10.95 ##     6) Petal.Length< 4.85 33  1 versicolor (0.00000000 
 0.96969697 0.03030303) *[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6928--6929
+Underfull \hbox (badness 10000) in paragraph at lines 4826--4827
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6936--6939
+Underfull \hbox (badness 10000) in paragraph at lines 4834--4837
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6939--6942
+Underfull \hbox (badness 10000) in paragraph at lines 4837--4840
 
  []
 
-<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-99-1.pdf, id=18
-10, 469.755pt x 325.215pt>
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-99-1.pdf, id=16
+69, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-99-1.pdf G
 raphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-99-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-99-1.pdf  used on input line 6957.
+ed-chunk-99-1.pdf  used on input line 4855.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[139]
+[97]
 <PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-100-1.pdf, id=1
-822, 469.755pt x 325.215pt>
+681, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-100-1.pdf 
 Graphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-100-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-100-1.pdf  used on input line 6982.
+ed-chunk-100-1.pdf  used on input line 4880.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[140 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-99-1.pdf
+[98 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-99-1.pdf>
+]
+Underfull \hbox (badness 10000) in paragraph at lines 4916--4918
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4918--4922
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4922--4924
+
+ []
+
+[99 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-100-1.pdf
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 7018--7020
+Underfull \hbox (badness 10000) in paragraph at lines 4926--4930
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7020--7024
+Underfull \hbox (badness 10000) in paragraph at lines 4970--4972
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7024--7026
-
- []
-
-[141 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-100-1.pd
-f>]
-Underfull \hbox (badness 10000) in paragraph at lines 7028--7032
+Underfull \hbox (badness 10000) in paragraph at lines 4972--4973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7072--7074
+Underfull \hbox (badness 10000) in paragraph at lines 4975--4977
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7074--7075
+Underfull \hbox (badness 10000) in paragraph at lines 4977--4979
+
+ []
+
+[100]
+Underfull \hbox (badness 10000) in paragraph at lines 5051--5053
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7077--7079
+Underfull \hbox (badness 10000) in paragraph at lines 5053--5055
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7079--7081
-
- []
-
-[142]
-Underfull \hbox (badness 10000) in paragraph at lines 7153--7155
+Underfull \hbox (badness 10000) in paragraph at lines 5055--5057
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7155--7157
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7157--7159
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7159--7162
+Underfull \hbox (badness 10000) in paragraph at lines 5057--5060
 
  []
 
 <PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-104-1.pdf, id=1
-865, 469.755pt x 325.215pt>
+724, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-104-1.pdf 
 Graphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-104-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-104-1.pdf  used on input line 7183.
+ed-chunk-104-1.pdf  used on input line 5081.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[143]
-Underfull \hbox (badness 10000) in paragraph at lines 7193--7195
+[101]
+Underfull \hbox (badness 10000) in paragraph at lines 5091--5093
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7212--7214
+Underfull \hbox (badness 10000) in paragraph at lines 5110--5112
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7214--7216
+Underfull \hbox (badness 10000) in paragraph at lines 5112--5114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7216--7217
+Underfull \hbox (badness 10000) in paragraph at lines 5114--5115
 
  []
 
-[144 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-104-1.pd
+[102 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-104-1.pd
 f>]
 <PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-105-1.pdf, id=1
-884, 469.755pt x 325.215pt>
+743, 469.755pt x 325.215pt>
 File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-105-1.pdf 
 Graphic file (type pdf)
 <use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-105-1.pdf>
 Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
-ed-chunk-105-1.pdf  used on input line 7250.
+ed-chunk-105-1.pdf  used on input line 5148.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 7250--7253
+Underfull \hbox (badness 10000) in paragraph at lines 5148--5151
 [][]
  []
 
-[145 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-105-1.pd
-f>] [146]
-Underfull \hbox (badness 10000) in paragraph at lines 7363--7365
+[103 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-105-1.pd
+f>] [104]
+Underfull \hbox (badness 10000) in paragraph at lines 5261--5263
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7365--7367
+Underfull \hbox (badness 10000) in paragraph at lines 5263--5265
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7367--7370
+Underfull \hbox (badness 10000) in paragraph at lines 5265--5268
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7375--7377
+Underfull \hbox (badness 10000) in paragraph at lines 5273--5275
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7378--7379
+Underfull \hbox (badness 10000) in paragraph at lines 5276--5277
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7398--7400
+Underfull \hbox (badness 10000) in paragraph at lines 5293--5295
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7400--7401
+Underfull \hbox (badness 10000) in paragraph at lines 5295--5296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7406--7407
+Underfull \hbox (badness 10000) in paragraph at lines 5301--5302
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7414--7416
+Underfull \hbox (badness 10000) in paragraph at lines 5309--5311
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7421--7424
+Underfull \hbox (badness 10000) in paragraph at lines 5316--5319
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7424--7426
+Underfull \hbox (badness 10000) in paragraph at lines 5319--5321
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7426--7428
+Underfull \hbox (badness 10000) in paragraph at lines 5321--5323
 
  []
 
-[147]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7486.
-[148]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 7486.
+<./Images/forests.png, id=1762, 727.71875pt x 446.66875pt>
+File: ./Images/forests.png Graphic file (type png)
+<use ./Images/forests.png>
+Package pdftex.def Info: ./Images/forests.png  used on input line 5328.
+(pdftex.def)             Requested size: 469.76918pt x 288.34108pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5335--5338
+
+ []
+
+[105]
+Underfull \hbox (badness 10000) in paragraph at lines 5338--5341
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5341--5344
+
+ []
+
+[106 <./Images/forests.png>] [107]
+Underfull \hbox (badness 10000) in paragraph at lines 5468--5470
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5470--5473
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5473--5476
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5476--5478
+
+ []
+
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-112-1.pdf, id=1
+785, 469.755pt x 325.215pt>
+File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-112-1.pdf 
+Graphic file (type pdf)
+<use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-112-1.pdf>
+Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
+ed-chunk-112-1.pdf  used on input line 5499.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[108]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-114-1.pdf, id=1
+792, 469.755pt x 325.215pt>
+File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-114-1.pdf 
+Graphic file (type pdf)
+<use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-114-1.pdf>
+Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
+ed-chunk-114-1.pdf  used on input line 5528.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[109 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-112-1.pd
+f>]
+Underfull \hbox (badness 10000) in paragraph at lines 5536--5539
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5539--5541
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5572--5573
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5579--5581
+
+ []
+
+[110 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-114-1.pd
+f>]
+Underfull \hbox (badness 10000) in paragraph at lines 5581--5583
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5589--5590
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5596--5597
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5602--5604
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5611--5613
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5623--5625
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5625--5627
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5627--5631
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5633--5635
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5635--5637
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5637--5639
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5639--5641
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5642--5644
+
+ []
+
+<./Images/ada_set.png, id=1824, 162.6075pt x 164.615pt>
+File: ./Images/ada_set.png Graphic file (type png)
+<use ./Images/ada_set.png>
+Package pdftex.def Info: ./Images/ada_set.png  used on input line 5654.
+(pdftex.def)             Requested size: 162.61206pt x 164.61961pt.
+[111]
+<./Images/ada1.png, id=1835, 285.065pt x 208.78pt>
+File: ./Images/ada1.png Graphic file (type png)
+<use ./Images/ada1.png>
+Package pdftex.def Info: ./Images/ada1.png  used on input line 5657.
+(pdftex.def)             Requested size: 285.0643pt x 208.77946pt.
+<./Images/ada2-3.png, id=1836, 387.4475pt x 413.545pt>
+File: ./Images/ada2-3.png Graphic file (type png)
+<use ./Images/ada2-3.png>
+Package pdftex.def Info: ./Images/ada2-3.png  used on input line 5661.
+(pdftex.def)             Requested size: 387.45245pt x 413.55028pt.
+[112 <./Images/ada_set.png> <./Images/ada1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 5663--5666
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5666--5670
+
+ []
+
+<./Images/ada_sum.png, id=1841, 639.38875pt x 477.785pt>
+File: ./Images/ada_sum.png Graphic file (type png)
+<use ./Images/ada_sum.png>
+Package pdftex.def Info: ./Images/ada_sum.png  used on input line 5674.
+(pdftex.def)             Requested size: 442.37872pt x 330.56873pt.
+[113 <./Images/ada2-3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 5683--5685
+
+ []
+
+
+Package hyperref Warning: Suppressing link with empty target on input line 5685
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5685--5687
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5693--5696
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5696--5699
+
+ []
+
+
+Package hyperref Warning: Suppressing link with empty target on input line 5701
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5699--5703
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5703--5705
+
+ []
+
+[114 <./Images/ada_sum.png>]
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-117-1.pdf, id=1
+857, 469.755pt x 325.215pt>
+File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-117-1.pdf 
+Graphic file (type pdf)
+<use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-117-1.pdf>
+Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
+ed-chunk-117-1.pdf  used on input line 5775.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[115]
+Underfull \hbox (badness 10000) in paragraph at lines 5797--5799
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5800--5801
+
+ []
+
+[116 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-117-1.pd
+f>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5866.
+[117]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 5866.
 (./PracticalMachineLearningNotes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 7486.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 7486.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5866.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5866.
 
 Package rerunfilecheck Info: File `PracticalMachineLearningNotes.out' has not c
 hanged.
-(rerunfilecheck)             Checksum: C3F52AAE857F7D20634A4B3B23FC6BF0;22152.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 7486.
+(rerunfilecheck)             Checksum: 69F99223FE8CDB9553E890D895744408;23199.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5866.
  ) 
 Here is how much of TeX's memory you used:
- 13529 strings out of 494587
- 212288 string characters out of 6177759
- 397153 words of memory out of 5000000
- 16402 multiletter control sequences out of 15000+600000
- 56132 words of font info for 97 fonts, out of 8000000 for 9000
+ 13575 strings out of 494587
+ 214215 string characters out of 6177759
+ 302140 words of memory out of 5000000
+ 16451 multiletter control sequences out of 15000+600000
+ 56215 words of font info for 98 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 32i,6n,38p,462b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,6n,38p,462b,475s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texli
 ve/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texlive/texmf-dist/f
 onts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/
@@ -2784,11 +3015,11 @@ nts/type1/public/lm/lmtk10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtti10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 >
-Output written on PracticalMachineLearningNotes.pdf (148 pages, 5653293 bytes).
+Output written on PracticalMachineLearningNotes.pdf (117 pages, 6198113 bytes).
 
 PDF statistics:
- 2115 PDF objects out of 2487 (max. 8388607)
- 1806 compressed objects within 19 object streams
- 510 named destinations out of 1000 (max. 500000)
- 11576 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 2075 PDF objects out of 2487 (max. 8388607)
+ 1787 compressed objects within 18 object streams
+ 505 named destinations out of 1000 (max. 500000)
+ 11672 words of extra memory for PDF output out of 12000 (max. 10000000)
 

@@ -999,7 +999,7 @@ points(training$age, predict(lm1, newdata = training), col = "#FF0000", pch = 19
 * You have to create the predictions on the test set with the exact same percedure you used on the training set.  
 * As such we have to predict what the variables of the testing set will be with the prediction from the training set.  
 ```{r}
-predict(bsBasis, age = testing$age)
+head(predict(bsBasis, age = testing$age), 10)
 ```
 
 #### Notes and Further Reading  
@@ -1507,7 +1507,7 @@ $\sum_{k\neq k'}\hat{p}_{mk} \times \hat{p}_{mk'} = \sum_{k=1}^K\hat{p}_{mk}(1-\
 * 0.5 = no purity  
 
 **Deviance/Information Gain:**  
-$-\sum{k=1}^K\hat{p}_{mk}\log_2\hat{p}_{mk}$  
+$-\sum_{k=1}^K\hat{p}_{mk}\log_2\hat{p}_{mk}$  
 * Deviance uses log base $e$, Information is as above  
 * 0 = perfect purity  
 * 1 = no purity  
@@ -1704,10 +1704,6 @@ ctreeBag$aggregate
 * **[Elements of Statistical Learning](http://www-stat.stanford.edu/~tibs/ElemStatLearn/)**  
 
 
-
-
-**Reminder to Commit (08), Delete this line** ***AFTER*** **Committing**  
-
 ## Random Forests  
 ### Random Forests  
 1. Bootstrap sample  
@@ -1721,9 +1717,166 @@ ctreeBag$aggregate
 * Interpretability  
 * Overfitting  
 
+![Visual Example](./Images/forests.png)  
+  
+* Each **v** is based on a bootstrap sample, as is the sample taken at each node  
+* We then get an observation (thicker brown line) and see what leaf it ends on in each tree, which contains probabilities of each value.  
+* We then get these probabilities and average them together  
+$p(c|v) = \frac{1}{T}\sum_t^Tp_t(c|v)$  
+* Where $T$ is the total number of trees  
+
+#### Example: Iris Data  
+```{r message=FALSE}
+data(iris)
+library(tidyverse)
+library(caret)
+set.seed(1618)
+inTrain <- createDataPartition(y = iris$Species,
+                               p = 0.7, list = FALSE)
+training <- iris[inTrain, ]
+testing <- iris[-inTrain, ]
+```
+
+```{r}
+modFit <- train(Species ~., data = training, 
+                method = "rf", #random forests
+                prox = TRUE) #Produces extra info for building models
+modFit
+```
+
+* `mtry` is the number of tries, or repeated trees that it builds  
+
+##### Getting a Single Tree  
+```{r}
+library(randomForest)
+getTree(modFit$finalModel, k = 2)#2nd tree
+```
+* Each row corresponds to a particular split.  
+  + `left/right daughter` indicates what row is the next node  
+  + `split var` is what variable is being used to determine the split  
+  + `split point` is the value we're examining for the split (less than this value goes to the left, greater to the right)  
+  + `status` is a 1 if this node splits, and -1 otherwise  
+  + `prediction` is what it predicts the value to be if we're at a leaf (`status == -1`)  
+
+##### Viewing Class "Centers"  
+```{r}
+irisP <- classCenter(training[,c(3,4)], training$Species,
+                     modFit$finalModel$prox)#We have this from `prox = TRUE`
+irisP <- as.data.frame(irisP)
+irisP$Species <- rownames(irisP)
+
+plot <- qplot(Petal.Width, Petal.Length, col = Species, data = training)
+plot + geom_point(aes(x = Petal.Width, y = Petal.Length, col = Species),
+                  size = 5, shape = 4, data = irisP)
+```
+
+##### Predicting New Values  
+```{r}
+pred <- predict(modFit, testing)
+testing$predRight <- pred == testing$Species
+table(pred, testing$Species)
+```
+```{r}
+#Viewing which values we missed
+qplot(Petal.Width, Petal.Length, colour = predRight, 
+      data = testing, main = "newdata Predictions")
+```
+
+#### Notes & Further Resources  
+* Random forests are usually one of the two top performing algorithms along with boosting in prediction contests.  
+* Random forests are difficult to interpret but often very accurate.  
+* Care should be taken to avoid overfitting (see **[rfcv (PDF)](http://cran.r-project.org/web/packages/randomForest/randomForest.pdf)** function)  
+
+**Further Resources:**  
+  + **[Random forests (written by discoverer)](http://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm)**  
+  + **[Random forest Wikipedia](http://en.wikipedia.org/wiki/Random_forest)**  
+  + **[Elements of Statistical Learning](http://www-stat.stanford.edu/~tibs/ElemStatLearn/)**  
 
 
 ### Boosting  
+* With *random forests* this is one of the most accurate out-of-the-box classifiers one can use.  
+
+#### Basic Idea  
+* General  
+1. Take lots of (possibly) weak predictors  
+2. Weight them and add them up  
+3. Get a stronger predictor  
+
+* Mathematical  
+1) Start with a set of classifiers, $h_1,...,h_T$  
+  + Examples: All possible trees, all possible regression models, all possible cutoffs  
+2) Create a classifier that combines classification functions: $f(x) = sgn(\sum_{t=1}^T\alpha_th_t(x))$  
+  + Where:  
+    - $\alpha_t$ is the weight  
+    - $h_t(x)$ is the classifier  
+    - $sgn$ is the **[sign function](https://en.wikipedia.org/wiki/Sign_function)**, essentially a unit step function centered at 0, and if $x = 0$, $sgn(x) = 0$  
+  + Goal is to minimize error (on training set)  
+  + Iterative, select one $h$ at each step  
+  + Calculate weights based on errors  
+  + Upweight missed classifications and select next $h$  
+* **[Adaboost on Wikipedia](http://en.wikipedia.org/wiki/AdaBoost)**  
+* **[Boosting Tutorial PDF](http://webee.technion.ac.il/people/rmeir/BoostingTutorial.pdf)**  
+
+#### Visual Example  
+* Given a set of points, $D_1$, plotted by two variables  
+![D1](./Images/ada_set.png)  
+  
+* We build a simple classifier to seperate the points  
+![Round 1: adaboost](./Images/ada1.png)  
+  
+* We then up-weight the misclassified points and build the next classifier  
+![Round 2 & 3](./Images/ada2-3.png)  
+  
+* In round 2 we seperate the weighted points, then up-weight the misclassified points again  
+* In round 3 we seperate the result of round 2's weights with a horizontal line, since we already did two vertical lines and doing more vertical wouldn't seperate them well.  
+* We then weight all these classifiers based on their $\alpha_t$ which is the value of the error function that is a minimum. In this case it is $\log_e(\frac{1-p(misclassified)}{p(misclassified)})/2$ which for round 1 = $log(\frac{0.7}{0.3})/2 \approx 0.424$    
+![adaboosting Result](./Images/ada_sum.png)
+  
+#### Boosting in R  
+* Boosting can be used with any subset of classifiers  
+* One large subclass is **[gradient boosting]()**.  
+* R has multiple boosting libraries. Differences include the choice of basic classification functions and combination rules.  
+  + **[gbm](http://cran.r-project.org/web/packages/gbm/index.html)** - boosting with trees.  
+  + **[mboost](http://cran.r-project.org/web/packages/mboost/index.html)** - model based boosting.  
+  + **[ada](http://cran.r-project.org/web/packages/ada/index.html)** - statistical boosting based on **[additive logistic regression]()**  
+  + **[gamBoost](http://cran.r-project.org/web/packages/GAMBoost/index.html)** - for boosting generalized additive models.  
+* Most of these are available in the caret package  
+
+#### Wage Example  
+```{r message = FALSE}
+library(ISLR); data(Wage)
+library(tidyverse)
+library(caret)
+wage <- subset(Wage, select = 
+          -c(logwage))#Including logwage would just give a direct predictor
+set.seed(1618)
+inTrain <- createDataPartition(y = wage$wage,
+                               p = 0.7, list = FALSE)
+training <- wage[inTrain,]
+testing <- wage[-inTrain,]
+```
+
+```{r warning = FALSE}
+modFit <- train(wage ~., method = "gbm", #boosting w/ trees
+                data = training, 
+                verbose = FALSE) #Produces more output
+print(modFit)
+```
+
+```{r}
+# Plot the results  
+qplot(predict(modFit, testing), wage, data = testing) +
+  geom_abline(slope = 1, intercept = 0, col = "#FF0000")
+```
+
+* Points will fall on the red line if we were to predict the exactly correct wage.  
+
+#### Notes and Further Reading  
+* A couple of nice tutorials for boosting:  
+  + **[Freund and Shapire](http://www.cc.gatech.edu/~thad/6601-gradAI-fall2013/boosting.pdf)**  
+  + **[Ron Meir](http://webee.technion.ac.il/people/rmeir/BoostingTutorial.pdf)**  
+* Boosting, random forests, and model ensembling are the most common tools that win Kaggle and other prediction contests.  
+  + **[PDF about Netflix Prize winner](http://www.netflixprize.com/assets/GrandPrize2009_BPC_BigChaos.pdf)** 
 
 **Reminder to Commit (09), Delete this line** ***AFTER*** **Committing**  
 
