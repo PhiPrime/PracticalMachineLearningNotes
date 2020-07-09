@@ -1878,10 +1878,126 @@ qplot(predict(modFit, testing), wage, data = testing) +
 * Boosting, random forests, and model ensembling are the most common tools that win Kaggle and other prediction contests.  
   + **[PDF about Netflix Prize winner](http://www.netflixprize.com/assets/GrandPrize2009_BPC_BigChaos.pdf)** 
 
-**Reminder to Commit (09), Delete this line** ***AFTER*** **Committing**  
 
 ## Model Baded Predictions  
 ### Model Based Predictions  
+#### Basic Idea  
+1. Assume the data follow a probabilistic model  
+2. Use **[Bayes' theorem](https://en.wikipedia.org/wiki/Bayes'_theorem)** to identify optimal classifiers  
+
+**Pros:**  
+* Can take advantage of structure of the data  
+* May be computationally convenient  
+* Are reasonably accurate on real problems  
+
+**Cons:**  
+* Makes additional assumptions about the data  
+* When the model is incorrect you may get reduced accuracy  
+
+#### Model Based Approach  
+1. Our goal is to build parametric model for conditional distribution $P(Y = k|X = x)$  
+2. A typical approach is to apply Bayes theorem:  
+$Pr(Y=k|X=x) = \frac{Pr(X=x|Y=k)Pr(Y=k)}{\sum_{\ell=1}^KPr(X=x|Y=\ell)Pr(Y=\ell)}$
+  + We then define $f_k(x) = Pr(X=x|Y=\ell)$ and $\pi_k = Pr(Y = k)$ which gives:  
+$Pr(Y=k|X=x)=\frac{f_k(x)\pi_k}{\sum_{\ell=1}^Kf_\ell(x)\pi_\ell}$  
+3. Typically prior probabilities of $\pi_k$ are set in advance from the data.  
+4. A common choice for $f_k(x)=\frac{1}{\sigma_k\sqrt{2\pi}}e^{-\frac{(x-\mu_k)^2}{\sigma_k^2}}$, a Gaussian distribution (can be multivariate if x is too)  
+5. Estimate the parameters $(\mu_k,\sigma_k^2)$ from the data.  
+6. Classify to the class with the highest value of $Pr(Y=k|X=x)$  
+
+#### Classifying Using the Model  
+A range of models use this approach  
+* Linear discriminant analysis assumes $f_k(x)$ is multivariate Gaussian with same covariances  
+* Quadratic discrimant analysis assumes $f_k(x)$ is multivariate Gaussian with *different* covariances  
+* **[Model based prediction](http://www.stat.washington.edu/mclust/)** assumes more complicated versions for the covariance matrix  
+* Naive Bayes assumes independence between features for model building  
+
+#### Why Linear Discriminant Analysis?  
+$\log\frac{Pr(Y=k|X=x)}{Pr(Y=j|X=x)}$  
+$=\log\frac{[f_k(x)\pi_k]/[\sum_{\ell=1}^Kf_\ell(x)\pi_\ell]}{[f_j(x)\pi_j]/[\sum_{\ell=1}^Kf_\ell(x)\pi_\ell]}$  
+* These common denominators cancel, yielding: $=\log\frac{f_k(x)\pi_k}{f_j(x)\pi_j}$  
+* The property of sums of logs yields: $\log\frac{f_k(x)}{f_j(x)} + \log\frac{\pi_k}{\pi_j}$  
+* $\log\frac{f_k(x)}{f_j(x)}$ will then expand to be $-\frac{1}{2}(\mu_k+\mu_j)^T*\sum^{-1}(\mu_k+\mu_j) + x^T\sum^{-1}(\mu_k-\mu_j)$  
+* Thus the whole term expands to $\log\frac{\pi_k}{\pi_j}-\frac{1}{2}(\mu_k+\mu_j)^T*\sum^{-1}(\mu_k+\mu_j) + x^T\sum^{-1}(\mu_k-\mu_j)$  
+  + $\sum^{-1}(\mu_k-\mu_j)$ is like the slope of lines, meaning the overall formula forms a line. This line determines which result is more probable 
+  + $\sum^{-1}$ is the transpose of the covariance matrix (The same for all classes since this is the linear discriminant)  
+  
+#### Decision Boundaries  
+![Visual for Decision Boundaries](./Images/LDAboundary.png)  
+  
+* Given the mapping of values given two varaibles (numbers on right)  
+  + We create gaussian distributions of where the values fall (circles on left)  
+  + We then draw boundary lines (black solid lines) that represent transition points where a new value's probability changes from being more likely one value to another.  
+  
+#### Discriminant Function  
+$\delta_k(x)=x^T\sum^{-1}\mu_k-\frac{1}{2}\mu_k\sum^{-1}\mu_k+\log(\mu_k)$  
+* The class is decided based on $\hat{Y}(x)=argmax_k\delta_k(x)$, that is the value of k that produces the largest discriminant  
+* One can usually estiamte parameters with the maximum likelihood function  
+
+#### Naive Bayes  
+* Suppose we have many predictors, we would want to model: $P(Y = k|X_1,...,X_m)$  
+* We could use Bayes Theorem to get:  
+$P(Y = k|X_1,...,X_m) = \frac{\pi_kP(X_1,...,X_m|Y=k)}{\sum_{\ell=1}^KP(X_1,...,X_m| Y = k)\pi_\ell}$  
+  + This is proportional to $\pi_kP(X_1,...,X_m|Y=k)$  
+* This can be broken down further:  
+  + $P(X_1,...,X_m|Y=k) = \pi_kP(X_1|Y=k)P(X_2,...,X_m|X_1, Y=k)$  
+  + $= \pi_kP(X_1|Y=k)P(X_2|X_1,Y=k)P(X_3,...,X_m|X_1, X_2, Y=k)$  
+  + $= \pi_kP(X_1|Y=k)P(X_2|X_1,Y=k)...P(X_m,...,X_m|X_1, ..., X_{m-1} Y=k)$  
+* If we assume all the variables are independent of eachother we can get the following argument:  
+$\approx \pi_kP(X_1|Y=k)P(X_2|Y = k)...P(X_m|Y=k)$  
+  + This assumption is quite *Naive* hence the name of this model. It works reasonable well and works better when there are a lot of catagorical or binary variables  
+  
+#### Example: Iris Data  
+```{r message = FALSE}
+data(iris)
+library(tidyverse)
+```
+```{r}
+names(iris)
+table(iris$Species) #What we're trying to predict  
+```
+```{r}
+# Creating training/test sets  
+set.seed(3435)
+inTrain <- createDataPartition(y = iris$Species,
+                               p = 0.7, list = FALSE)
+training <- iris[inTrain,]
+testing <- iris[-inTrain,]
+dim(training); dim(testing)
+```
+  
+```{r}
+ldamodel <- train(Species ~., data = training,
+                  method = "lda") #Linear Discriminat Analysis
+nbmodel  <- train(Species~., data = training,
+                 method = "nb") #Naive Bayes
+preLDA <- predict(ldamodel, testing)
+preNB  <- predict(nbmodel,  testing)
+table(preLDA, preNB)
+```
+* This table shows the differences in these models  
+
+```{r}
+#Comparision of Results  
+equalPredictions <-  (preLDA == preNB)
+qplot(Petal.Width, Sepal.Width, 
+      colour = equalPredictions, data = testing)
+```
+
+```{r}
+# Reminder of True Values  
+qplot(Petal.Width, Sepal.Width, 
+      colour = Species, data = testing)
+```
+
+* As such *lda* was more accurate for this case  
+
+#### Further Reading  
+* **[Introduction to statistical learning](http://www-bcf.usc.edu/~gareth/ISL/)**  
+* **[Elements of Statistical Learning](http://www-stat.stanford.edu/~tibs/ElemStatLearn/)**  
+* **[PDF on Model based clustering](http://www.stat.washington.edu/raftery/Research/PDF/fraley2002.pdf)**  
+* **[Linear Discriminant Analysis](http://en.wikipedia.org/wiki/Linear_discriminant_analysis)**  
+* **[Quadratic Discriminant Analysis](http://en.wikipedia.org/wiki/Quadratic_classifier)**  
 
 **Reminder to Commit (10), Delete this line** ***AFTER*** **Committing**  
 
