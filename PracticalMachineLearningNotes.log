@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2020.1.12)  9 JUL 2020 17:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2020.1.12)  10 JUL 2020 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3077,24 +3077,88 @@ Underfull \hbox (badness 10000) in paragraph at lines 6113--6115
 
 [121 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-123-1.pd
 f>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6162.
+Underfull \hbox (badness 10000) in paragraph at lines 6177--6179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6185--6187
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6187--6189
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6189--6191
+
+ []
+
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-127-1.pdf, id=1
+985, 469.755pt x 325.215pt>
+File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-127-1.pdf 
+Graphic file (type pdf)
+<use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-127-1.pdf>
+Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
+ed-chunk-127-1.pdf  used on input line 6201.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [122]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 6162.
+Underfull \hbox (badness 10000) in paragraph at lines 6207--6209
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6209--6211
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6211--6213
+
+ []
+
+<PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-128-1.pdf, id=1
+997, 469.755pt x 325.215pt>
+File: PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-128-1.pdf 
+Graphic file (type pdf)
+<use PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-128-1.pdf>
+Package pdftex.def Info: PracticalMachineLearningNotes_files/figure-latex/unnam
+ed-chunk-128-1.pdf  used on input line 6225.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[123 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-127-1.pd
+f>]
+Underfull \hbox (badness 10000) in paragraph at lines 6232--6237
+
+ []
+
+
+Overfull \hbox (7.38986pt too wide) in paragraph at lines 6277--6277
+[]\T1/lmtt/m/n/10.95 ## Warning in nominalTrainWorkflow(x = x, y = y, wts = wei
+ghts, info = trainInfo, :[] 
+ []
+
+[124 <./PracticalMachineLearningNotes_files/figure-latex/unnamed-chunk-128-1.pd
+f>] [125]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6450.
+[126] [127]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 6450.
 (./PracticalMachineLearningNotes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 6162.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 6162.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 6450.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 6450.
 
 Package rerunfilecheck Info: File `PracticalMachineLearningNotes.out' has not c
 hanged.
 (rerunfilecheck)             Checksum: 1F85CC131206796C148BC94F8D81F110;24654.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 6162.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 6450.
  ) 
 Here is how much of TeX's memory you used:
- 13641 strings out of 494587
- 215756 string characters out of 6177759
+ 13676 strings out of 494587
+ 216646 string characters out of 6177759
  302560 words of memory out of 5000000
- 16481 multiletter control sequences out of 15000+600000
- 56428 words of font info for 100 fonts, out of 8000000 for 9000
+ 16489 multiletter control sequences out of 15000+600000
+ 56724 words of font info for 103 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  32i,6n,38p,462b,475s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texli
@@ -3119,11 +3183,11 @@ nts/type1/public/lm/lmtk10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtti10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 >
-Output written on PracticalMachineLearningNotes.pdf (122 pages, 6272556 bytes).
+Output written on PracticalMachineLearningNotes.pdf (127 pages, 6356432 bytes).
 
 PDF statistics:
- 2185 PDF objects out of 2487 (max. 8388607)
- 1886 compressed objects within 19 object streams
- 537 named destinations out of 1000 (max. 500000)
- 11759 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 2247 PDF objects out of 2487 (max. 8388607)
+ 1938 compressed objects within 20 object streams
+ 558 named destinations out of 1000 (max. 500000)
+ 11769 words of extra memory for PDF output out of 12000 (max. 10000000)
 
