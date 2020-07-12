@@ -2373,12 +2373,173 @@ sqrt(sum((combPredV - validation$wage)^2))
 * Scalability matters, many combinations increase complexity.  
   + For example Netflix never implemented the algorithm that won their contest  
 
-
-**Reminder to Commit (11), Delete this line** ***AFTER*** **Committing**  
-
 ## Forecasting & Unsupervised Prediction  
 ### Forecasting  
+* A specific kind of prediction problem that is often applied to time series data  
+
+#### What is Different?  
+* Data are dependent over time  
+* Specific pattern types:  
+  + Trends - long term increase or decrease  
+  + Seasonal patterns - patterns related to time of week, month, year, etc.  
+  + Cycles - patterns that rise and fall periodically (longer than a year typically)  
+* Subsampling into training/test is more complicated  
+  + Can't just randomly assign points to each group as the points are dependent in time  
+* Similar issues arise in spatial data  
+  + Dependency between nearby observations  
+  + Location specific effects  
+* Typically goal is to predict one or more observations into the future.  
+* All standard predictions can be used (with caution!)  
+
+#### Beware Spurious Correlations  
+* Time series can often be correlated for reasons that don't make them good for predicting one from the other  
+* Google Correlate correlates different words over time, however it has been shut down on Dec. 15th, 2019 as a result of low usage    
+![Google stock price vs. solitaire network](./Images/spurious.jpg)
+  
+* Also common in geographic analyses as they all have population density as a cofactor  
+![Relevant XKCD](./Images/heatmap.png)
+
+#### Beware Extrapolation
+![Olympic race times. Blue is men, red is women](./Images/extrapolation.jpg)
+  
+* This graph extrapolated the data out to say that around 2156 is when women would run faster than men.  
+* But with this same extrapolation it would predict that in the far future both sexes would run negative times  
+
+#### Example: Forecasting with Google Data  
+```{r}
+library(quantmod)
+#Load data  
+from.dat <- as.Date("01/01/08", format = "%m/%d/%y")
+to.dat <- as.Date("12/31/13", format = "%m/%d/%y")
+getSymbols("GOOG", src = "yahoo", from = from.dat, to = to.dat)
+getSymbols("GOOGL", src = "yahoo", from = from.dat, to = to.dat)
+combined <- GOOG + GOOGL
+combined$GOOG.Volume <- GOOGL$GOOGL.Volume/2 
+head(combined)
+```
+
+##### Summarize Monthly and Store as Time Series  
+```{r}
+mGoog <- to.monthly(combined) #Convert to monthly time series
+googOpen <- Op(mGoog) #Opening info
+ts1 <- ts(googOpen, frequency = 12) #Create time series 
+plot(ts1, xlab = "Years+1", ylab = "GOOG")
+```
+
+#### Example Time Series Decomposition  
+* **Trend** - Consistently increasing pattern over time  
+* **Seasonal** - When there is a pattern over a fixed period of time that recurs.  
+* **Cyclic** - When data rises and falls over non fixed periods  
+* **[On Maths of Time Series](https://www.otexts.org/fpp/6/1)**  
+
+```{r}
+#Using decompose function on t.s.  
+plot(decompose(ts1), xlab = "Years+1")
+```
+
+#### Training and Test Sets  
+```{r warning = FALSE}
+length(ts1)/12
+ts1Train <- window(ts1, start = 1, end = 5) #1st-5th season
+ts1Test <-  window(ts1, start = 5, end = (7 - 0.01))
+ts1Train
+```
+
+#### Simple Moving Average  
+$SMA = Y_t = \frac{1}{2*k+1}\sum_{j=-k}^ky_{t+j}$  
+```{r warning = FALSE}
+library(forecast)#for `ma`
+plot(ts1Train)
+lines(ma(ts1Train, order = 3), #Moving Average
+      col = "#FF0000")
+```
+
+#### Exponential Smoothing  
+$\hat{y}_{t+1}=\alpha y_t+(1-\alpha)\hat{y}_{t-1}$  
+* Weight nearby time points more heavily than time points that are further away
+* There are a number of different smoothing models to choose from  
+![Some of these smoothing models](./Images/smoothingModels.png)
+  
+```{r}
+ets1 <- ets(ts1Train, #Exponential Time Smoothing
+           model = "MMM") #Three letters for: error, trend, & season type
+fcast <- forecast(ets1)
+plot(fcast) #Includes prediction bounds
+lines(ts1Test, col = "red")
+```
+
+#### Obtain the Accuracy  
+```{r}
+accuracy(fcast, ts1Test)
+```
+
+#### Notes & Further Resources  
+* Cautions:  
+  + Be wary of spurious correlations  
+  + Be careful how far you predict (extrapolation)  
+  + Be wary of dependencies over time  
+* **[Forecasting and timeseries prediction](http://en.wikipedia.org/wiki/Forecasting)** is an entire field  
+* **[Rob Hyndman's Forecasting: Principle and Practice](https://www.otexts.org/fpp/)** is a good place to start  
+* See **[quantmod](https://cran.r-project.org/web/packages/quantmod/)** or **[quandl](https://www.rdocumentation.org/packages/Quandl/versions/2.10.0)** packages for finance-related problems.  
+
 ### Unsupervised Prediction  
+* In previous examples of this course we've known the labels, however sometimes one doesn't know the labels so you have to discover them in advance  
+
+#### Key Ideas  
+* Sometimes you don't know the labels for prediction  
+* To build a predictor  
+  + Create clusters  
+    - Not a noiseless process
+  + Name clusters  
+    - Intepretting them well is challenging  
+  + Build predictor for clusters (using algorithms previously discussed)  
+* In a new data set  
+  + Predict clusters & apply name from previous data set  
+  
+#### Iris Example (Ignoring Species Labels)  
+```{r message = FALSE}
+data(iris)
+library(tidyverse)
+set.seed(1729)
+inTrain <- createDataPartition(y = iris$Species,
+                               p = 0.7, list = FALSE)
+training <- iris[inTrain, ]
+testing <- iris[-inTrain, ]
+dim(training); dim(testing)
+```
+
+#### Cluster with K-Means  
+```{r}
+kMeans1 <- kmeans(subset(training, select = -c(Species)), centers = 3)
+training$clusters <- as.factor(kMeans1$cluster)
+qplot(Petal.Width, Petal.Length, 
+      colour = clusters, shape = Species, data = training)
+```
+
+```{r}
+#Compare to Real Labels
+table(kMeans1$cluster, training$Species)
+```
+* In general we wouldn't know the names of these Species and have to come up with names for each of the clusters  
+
+```{r}
+modFit <- train(clusters~., data = subset(training,select = -c(Species)),
+                method = "rpart")#Classification tree
+table(predict(modFit, training), training$Species)
+```
+
+#### Apply on Test  
+```{r}
+testClusterPred <- predict(modFit, testing)
+table(testClusterPred, testing$Species)
+```
+
+#### Notes & Further Reading  
+* The `cl_predict` function in the `clue` package provides similar functionality  
+* Beware over-interpretation of clusters!  
+* This is one basic approach to **[recommendation engines](http://en.wikipedia.org/wiki/Recommender_system)**  
+* **[Elements of Statistical Learning](http://www-stat.stanford.edu/~tibs/ElemStatLearn/)**  
+* **[Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/)**  
 
 **Reminder to Commit (12), Delete this line** ***AFTER*** **Committing**  
 
